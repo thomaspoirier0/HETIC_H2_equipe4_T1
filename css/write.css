@@ -1,0 +1,35 @@
+form 
+{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+    text-align: center;
+
+}
+.name
+{
+    border: 0.5px solid grey;
+    border-radius: 5px;
+
+}
+.name:focus {
+    border-color: blue;
+}
+.story 
+{
+    border: 0.5px solid grey;
+    width: 100%;
+    height: 70%;
+    border-radius: 5px;
+    resize: none;
+}
+.story:focus {
+    border-color: blue;
+}
+.submit {
+    background-color: grey;
+    width: 150px;
+    margin: 0 auto;
+}
