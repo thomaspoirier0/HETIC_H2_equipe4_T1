@@ -1,34 +1,53 @@
-const getPost = async function(data) {
-    try {
+const getPost = async function(data) 
+{
+    try 
+    {
         let response = await fetch ('api/index.php?action=read')
-        if(response.ok) {
+        if(response.ok) 
+        {
             let responseData = await response.json()
             return responseData
             console.log(responseData)
-        } else {
+        }
+        else 
+        {
             console.error('Retour du serveur  : ', response.status)
         }
-    } catch (e) {
+    } 
+    catch (e) 
+    {
         console.log(e)
     }    
 } 
 
-const sendPost = async function (data) {
-    try {
-        let response = await fetch ('api/index.php?action=send', {
+const sendPost = async function (data) 
+{
+    try 
+    {
+        let response = await fetch ('api/index.php?action=send', 
+        {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
         })
-        if(response.ok) {
+        if(response.ok) 
+        {
             let responseData = await response.json()
             console.log(data)
-        } else {
+        } 
+        else if (response.status==405) 
+        {
+            return false
+        }
+        else 
+        {
             console.error('Retour du serveur  : ', response.status)
         }
-    } catch (e) {
+    } 
+    catch (e) 
+    {
         console.log(e)
     }
 }
