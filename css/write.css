@@ -2,11 +2,11 @@ form
 {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     width: 100vw;
     height: 100vh;
-    margin: 0 auto;
-    text-align: center;
-
+    user-select: none;
+    -moz-user-select: none;
 }
 .name
 {
@@ -14,10 +14,12 @@ form
     border-radius: 5px;
 
 }
-.name:focus {
+.name:focus 
+{
     border-color: blue;
 }
-.story 
+
+.story-area
 {
     border: 0.5px solid grey;
     width: 100%;
@@ -25,11 +27,35 @@ form
     border-radius: 5px;
     resize: none;
 }
-.story:focus {
+.story-area:focus 
+{
     border-color: blue;
 }
-.submit {
+
+
+
+
+.button-submit 
+{
     background-color: grey;
     width: 150px;
     margin: 0 auto;
+}
+.popup-name
+{
+    display: none;
+    
+}
+.popup-name--display
+{
+    display: block;
+    position: absolute;
+    background-color: white;
+    width: 80vw;
+    height: 50vh;
+
+}
+.form-story--none
+{
+    background-color: grey;
 }
