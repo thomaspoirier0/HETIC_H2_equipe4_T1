@@ -1,3 +1,85 @@
+html,
+body {
+  font-size: 62.5%; }
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background: #FFFFFF; }
+  .menu-container .nav-parameters {
+    width: 100%;
+    height: 50px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+    background: #0C003E; }
+    .menu-container .nav-parameters img {
+      width: 30px; }
+      .menu-container .nav-parameters img:first-of-type {
+        margin: 0 20px; }
+  .menu-container .logo-motto-container {
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: #0C003E; }
+    .menu-container .logo-motto-container .logo {
+      max-height: 90px;
+      margin-bottom: 40px; }
+    .menu-container .logo-motto-container .motto {
+      color: #FFFFFF;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 200;
+      margin-bottom: 20px; }
+  .menu-container .waves-container {
+    width: 100%;
+    height: 100px; }
+  .menu-container .menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 50px 0; }
+    .menu-container .menu .menu-button {
+      width: 80%;
+      height: 45px;
+      background: transparent;
+      color: #7FB8F5;
+      border: 1px solid #7FB8F5;
+      border-radius: 7px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 200;
+      text-transform: capitalize; }
+      .menu-container .menu .menu-button:first-of-type {
+        margin-bottom: 30px; }
+  .menu-container .info-scroller {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: 20px; }
+    .menu-container .info-scroller .info-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 200;
+      color: #7FB8F5; }
+    .menu-container .info-scroller .downside-arrow {
+      width: 1.2rem;
+      height: 1.2rem;
+      border-right: 1px solid #7FB8F5;
+      border-bottom: 1px solid #7FB8F5;
+      transform: rotate(45deg);
+      transition: transform 0.2s ease-in-out; }
+      .menu-container .info-scroller .downside-arrow:hover {
+        transform: translateY(5px) rotate(45deg); }
+
 .container {
   display: flex;
   flex-direction: column;
