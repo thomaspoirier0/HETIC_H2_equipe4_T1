@@ -3,7 +3,7 @@
 class Validator {
 
     public static function check($field) {
-        if($field != '') {
+        if(!empty($field)) {
             return htmlspecialchars($field);
         } else {
             return false;
