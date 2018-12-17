@@ -1,5 +1,7 @@
 // Canvas wave Home Page
-const $logoContainer = document.querySelector('.logo-motto-container')
+const $menuContainer = document.querySelector('.menu-container')
+const $menu = $menuContainer.querySelector('.menu')
+const $logoContainer = $menuContainer.querySelector('.logo-motto-container')
 const $canvas = document.querySelector('.js-waves')
 const context = $canvas.getContext('2d')
 
@@ -9,16 +11,13 @@ let windowHeight = window.innerHeight
 const nodes = 3
 const waves = []
 let waveHeight = 100
-let waveColors = ["#6BB9F0","#19B5FE","#60B6FF", "#89C4F4", "#FFFFFF"]
+let waveColors = ["#6BB9F0","#19B5FE","#60B6FF", "#89C4F4", '#FFFFFF']
 
 const waveHeader = () =>
 {
     resizeWaveCanvas()
     window.addEventListener('resize', resizeWaveCanvas)
-    window.addEventListener('orientationchange', (_event) =>
-    {
-        resizeWaveCanvas()
-    })
+    window.addEventListener('orientationchange', resizeWaveCanvas)
     for (let i = 0; i < waveColors.length; i++)
     {
         const temp = new waveGenerator(waveColors[i], 1, nodes)
@@ -27,10 +26,10 @@ const waveHeader = () =>
 }
 const update = () =>
 {
-    context.fillStyle = window.getComputedStyle($logoContainer).getPropertyValue('background-color')
+    context.fillStyle = window.getComputedStyle($menuContainer).getPropertyValue('background-color')
     context.globalCompositeOperation = 'source-over'
     context.fillRect(0,0,$canvas.width,$canvas.height)
-    context.globalCompositeOperation = "screen";
+    //context.globalCompositeOperation = "screen";
     for (let i = 0; i < waves.length; i++)
     {
         for (var j = 0; j < waves[i].nodes.length; j++)
@@ -39,9 +38,10 @@ const update = () =>
         }
         drawWave(waves[i])
     }
+    waves[waves.length-1].colour = window.getComputedStyle($menu).getPropertyValue('background-color')
     context.fillStyle = '#FFFFFF'
 
-window.requestAnimationFrame(update)
+    window.requestAnimationFrame(update)
 }
 class waveGenerator
 {
@@ -60,6 +60,7 @@ class waveGenerator
             this.nodes.push(temp)
         }
         waves.push(this)
+        console.log(waves)
     }
 }
 const bounce = (nodeArr) =>
@@ -157,13 +158,20 @@ class typeWritterMotto
             setTimeout(() =>
             {
                 let temp = $spanMotto.innerText
-                this.$spanMotto.innerText = temp + textToWrite[i]
+                if(textToWrite[i] == ' ')
+                {
+                    this.$spanMotto.innerHTML = temp + '&nbsp'
+                }
+                else
+                {
+                    this.$spanMotto.innerHTML = temp + textToWrite[i]
+                }
             },80+i*80)
         }
         setTimeout(() =>
         {
             this.removeMotto(textToWrite, timeToWait)
-        }, 5000 + timeToWait)
+        }, 2000 + timeToWait)
         
     }
 
@@ -173,7 +181,7 @@ class typeWritterMotto
         {
             setTimeout(() =>
             {
-                this.$spanMotto.innerText = textToWrite.substring(0, textToWrite.length-i)
+                this.$spanMotto.innerHTML = textToWrite.substring(0, textToWrite.length-i)
             },80+i*80)
         }
         setTimeout(() =>
@@ -182,3 +190,45 @@ class typeWritterMotto
         }, 1000 + timeToWait)
     }
 }
+
+
+// Dark Mode 
+
+class darkMode
+{
+    constructor(element, toColor)
+    {
+        this.element = element
+        this.toColor = toColor
+        this.colorFade()
+    }
+    colorFade()
+    {
+        for(let i = 0; i < this.element.length; i++)
+        {
+            this.element[i].style.background = this.toColor
+        }
+        console.log('switch')
+    }
+}
+
+const darkModeButton = document.querySelector('.dark-mode-toggle')
+const navParameters = document.querySelector('.nav-parameters')
+
+let darkModeStatus = false
+let oldColor = window.getComputedStyle($menuContainer).getPropertyValue('background-color')
+let newColor = '#142A3B'
+darkModeButton.addEventListener('click', () =>
+{
+    if(!darkModeStatus)
+    {
+        const headerDarkMode = new darkMode([$menuContainer, $menu], newColor)
+        darkModeStatus = true
+    }
+    else
+    {
+        const headerDarkMode = new darkMode([$menuContainer], oldColor)
+        const menuDarkMode = new darkMode([$menu], '#FFFFFF')
+        darkModeStatus = false
+    }
+})
