@@ -2,7 +2,7 @@ const getPost = async function(data)
 {
     try 
     {
-        let response = await fetch ('api/index.php?action=read')
+        let response = await fetch ('../api/index.php?action=read')
         if(response.ok) 
         {
             let responseData = await response.json()
@@ -24,7 +24,7 @@ const sendPost = async function (data)
 {
     try 
     {
-        let response = await fetch ('api/index.php?action=send', 
+        let response = await fetch ('../api/index.php?action=send', 
         {
             method: 'POST',
             headers: {
@@ -33,18 +33,17 @@ const sendPost = async function (data)
             body: JSON.stringify(data)
         })
         if(response.ok) 
-        {
+        {   
+            popUpInsert(response.status)
             let responseData = await response.json()
             console.log(data)
         } 
-        else if (response.status==405) 
-        {
-            return false
-        }
         else 
         {
+            popUpInsert(response.status)
             console.error('Retour du serveur  : ', response.status)
         }
+
     } 
     catch (e) 
     {
