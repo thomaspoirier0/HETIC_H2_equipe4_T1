@@ -13,7 +13,11 @@
   font-family: 'Poppins', sans-serif;
   font-size: 1.6rem;
   font-weight: 200;
-  text-transform: capitalize; }
+  text-transform: capitalize;
+  transition: all 0.2s ease-in-out; }
+  @media screen and (min-width: 900px) {
+    .menu-button {
+      width: 25%; } }
   .menu-button:hover {
     background: var(--buttons-color);
     color: var(--buttons-text-color); }
