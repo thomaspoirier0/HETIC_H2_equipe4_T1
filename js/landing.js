@@ -198,29 +198,56 @@ class typeWritterMotto
 // Dark Mode 
 
 const darkModeButton = document.querySelector('.dark-mode-toggle')
-const navParameters = document.querySelector('.nav-parameters')
+
+const root = document.documentElement
+const $conceptContainer = document.querySelector('.concept-container')
+const $conceptSpan = $conceptContainer.querySelector('span')
+const $svgIcons = $conceptContainer.querySelectorAll('img')
+
+const newColorTop = '#142A3B'
+const newColorBottom = '#132431'
+const oldColor = window.getComputedStyle($menuContainer).getPropertyValue('background-color')
 
 let darkModeStatus = false
-let oldColor = window.getComputedStyle($menuContainer).getPropertyValue('background-color')
-let newColorTop = '#142A3B'
-let newColorBottom = '#132431'
-let root = document.documentElement
 darkModeButton.addEventListener('click', () =>
 {
     if(!darkModeStatus)
     {
         const headerDarkMode = new darkMode([$menuContainer], newColorTop)
-        const menuDarkMode = new darkMode([$menu], newColorBottom)
+        const menuDarkMode = new darkMode([$menu, $conceptContainer], newColorBottom)
         root.style.setProperty('--buttons-color', '#FFFFFF')
         root.style.setProperty('--buttons-text-color', '#000000')
+        root.style.setProperty('--concept-text', '#FFFFFF')
+
+        for(let i = 0; i < $svgIcons.length; i++)
+        {
+            $svgIcons[i].style.filter = 'brightness(0) invert(1)'
+        }
+
         darkModeStatus = true
     }
     else
     {
         const headerDarkMode = new darkMode([$menuContainer], oldColor)
-        const menuDarkMode = new darkMode([$menu], '#FFFFFF')
+        const menuDarkMode = new darkMode([$menu, $conceptContainer], '#FFFFFF')
         root.style.setProperty('--buttons-color', '#7fb8f5')
         root.style.setProperty('--buttons-text-color', '#FFFFFF')
+        root.style.setProperty('--concept-text', '#000000')
+
+        for(let i = 0; i < $svgIcons.length; i++)
+        {
+            $svgIcons[i].style.filter = ''
+        }
+
         darkModeStatus = false
     }
+})
+
+
+// Scroll to Concept bloc
+
+const $scrollButton = $menu.querySelector('.info-scroller')
+$scrollButton.addEventListener('click', () =>
+{
+    $scrollButton.scrollIntoView(true)
 })

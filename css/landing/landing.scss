@@ -3,10 +3,11 @@
     --top-background-color: #201a38;
     --buttons-color: #7FB8F5;
     --buttons-text-color: #ffffff;
+    --concept-text: #000000;
 }
 // Global CSS 
 .menu-button{
-    width: 80%;
+    width: 100%;
     height: 45px;
     background: transparent;
     color: var(--buttons-color);
@@ -16,17 +17,21 @@
     font-size: 1.6rem;
     font-weight: 200;
     text-transform: capitalize;
-    transition: all 0.2s ease-in-out;
+    transition: border 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    cursor: pointer;
     @media screen and (min-width: 900px) {
         width: 25%;
+        max-width: 300px;
     }
-
     &:hover{
         background: var(--buttons-color);
         color: var(--buttons-text-color);
     }
     &:first-of-type{
         margin-bottom: 30px;
+        @media screen and (min-width: 900px) {
+            margin: 0;
+        }
     }
 }
 
@@ -35,7 +40,7 @@
 html,
 body{
     font-size: 62.5%;
-    background: var(--top-background-color);
+    scroll-behavior: smooth;
 }
 
 // CSS Home Page
@@ -43,9 +48,14 @@ body{
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
+    height: 95vh;
     background: var(--top-background-color);
-    transition: all 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
+    transition: background-color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
+    font-family: 'Poppins', sans-serif;
+    @media screen and (max-height: 650px) {
+        height: 650px;
+        transition: height 0.2s cubic-bezier(0.13, 0.34, 0.16, 0.93);
+    }
     .nav-parameters{
         width: 100%;
         height: 50px;
@@ -54,6 +64,7 @@ body{
         justify-content: flex-end;
         img{
             width: 30px;
+            cursor: pointer;
             &:first-of-type{
                 margin: 0 20px;
             }
@@ -72,7 +83,6 @@ body{
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        transition: all 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
         .logo{
             max-height: 90px;
             margin-bottom: 40px;
@@ -81,7 +91,6 @@ body{
             position: relative;
             height: 1.4rem;
             color: #FFFFFF;
-            font-family: 'Poppins', sans-serif;
             font-size: 1.4rem;
             font-weight: 200;
             margin-bottom: 20px;
@@ -104,19 +113,22 @@ body{
         align-items: center;
         flex-grow: 1;
         background: #FFFFFF;
-        transition: all 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
+        transition: background-color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
         .js-waves{
             width: 100%;
             height: auto;
             margin-bottom: 50px;
         }
         .menu-buttons-container{
-            width: 100%;
+            width: 50%;
             height: auto;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
             align-items: center;
+            @media screen and (min-width: 900px) {
+                flex-direction: row;
+            }
         }
         .info-scroller{
             //position: absolute;
@@ -126,9 +138,9 @@ body{
             align-items: center;
             margin-top: auto;
             margin-bottom: 20px; 
+            user-select: none;
             cursor: pointer;
             .info-text{
-                font-family: 'Poppins', sans-serif;
                 font-size: 1.2rem;
                 font-weight: 200;
                 color: var(--buttons-color);
@@ -140,6 +152,7 @@ body{
                 border-bottom: 1px solid var(--buttons-color);
                 transform: rotate(45deg);
                 transition: transform 0.2s ease-in-out;
+                will-change: transform;
             }
             &:hover .downside-arrow{
                 transform: translateY(5px) rotate(45deg);
@@ -148,6 +161,46 @@ body{
     }
 }
 
+.concept-container{
+    width: 100%;
+    padding: 10px 10% 50px 10%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
+    @media screen and (max-width: 900px) {
+        flex-direction: column;
+        align-items: center;
+    }
+    .concept-card{
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 50px 10%;
+        text-align: center;
+        @media screen and (max-width: 900px) {
+            width: 50%;
+        }
+        img{
+            width: 20%;
+           @media screen and (max-width: 900px) {
+            width: 85px;
+        }
+        }
+        h2{
+            color: var(--buttons-color);
+            font-weight: 400;
+            margin: 50px 0 25px 0;
+        }
+        span{
+            color: var(--concept-text);
+            font-weight: 200;
+        }
+    }
+}
 @keyframes type-writter-cursor{
     0%{opacity: 0;}
     50%{opacity: 1;}

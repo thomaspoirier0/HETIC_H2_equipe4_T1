@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150.425 100.458">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-6 {
+        fill: none;
+      }
+
+      .cls-1 {
+        stroke: #e26a6a;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        stroke: #ffc;
+      }
+
+      .cls-3 {
+        stroke: #7befb2;
+      }
+
+      .cls-4 {
+        stroke: #d5b8ff;
+      }
+
+      .cls-5 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="Groupe_11" data-name="Groupe 11" transform="translate(729 454)">
+    <g id="Rectangle_15" data-name="Rectangle 15" class="cls-1" transform="translate(-681.868 -444.782)">
+      <rect class="cls-5" width="7.931" height="82.022" rx="3.965"/>
+      <rect class="cls-6" x="1" y="1" width="5.931" height="80.022" rx="2.965"/>
+    </g>
+    <g id="Rectangle_16" data-name="Rectangle 16" class="cls-2" transform="translate(-658.075 -454)">
+      <rect class="cls-5" width="7.931" height="100.458" rx="3.965"/>
+      <rect class="cls-6" x="1" y="1" width="5.931" height="98.458" rx="2.965"/>
+    </g>
+    <g id="Rectangle_17" data-name="Rectangle 17" class="cls-3" transform="translate(-634.283 -444.713)">
+      <rect class="cls-5" width="7.931" height="81.884" rx="3.965"/>
+      <rect class="cls-6" x="1" y="1" width="5.931" height="79.884" rx="2.965"/>
+    </g>
+    <g id="Rectangle_18" data-name="Rectangle 18" class="cls-1" transform="translate(-586.506 -417.207)">
+      <rect class="cls-5" width="7.931" height="26.873" rx="3.965"/>
+      <rect class="cls-6" x="1" y="1" width="5.931" height="24.873" rx="2.965"/>
+    </g>
+    <g id="Rectangle_21" data-name="Rectangle 21" class="cls-3" transform="translate(-729 -417.617)">
+      <rect class="cls-5" width="7.931" height="27.692" rx="3.965"/>
+      <rect class="cls-6" x="1" y="1" width="5.931" height="25.692" rx="2.965"/>
+    </g>
+    <g id="Rectangle_19" data-name="Rectangle 19" class="cls-4" transform="translate(-705.661 -430.207)">
+      <rect class="cls-5" width="7.931" height="52.873" rx="3.965"/>
+      <rect class="cls-6" x="1" y="1" width="5.931" height="50.873" rx="2.965"/>
+    </g>
+    <g id="Rectangle_32" data-name="Rectangle 32" class="cls-4" transform="translate(-610.332 -430.601)">
+      <rect class="cls-5" width="7.931" height="53.66" rx="3.965"/>
+      <rect class="cls-6" x="1" y="1" width="5.931" height="51.66" rx="2.965"/>
+    </g>
+  </g>
+</svg>
