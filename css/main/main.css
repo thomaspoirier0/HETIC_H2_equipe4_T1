@@ -151,7 +151,8 @@ html {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 120px;
+  width: 200px;
+  height: 10vh;
 }
 .container form .button-next .button-pop {
   font-size: 20px;
@@ -198,6 +199,7 @@ html {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
   width: 100%;
 }
 .container .popup--display .bottom-name {
@@ -252,7 +254,7 @@ html {
     width: 40vw !important;
   }
 }
-@media screen and (min-width: 100px) {
+@media screen and (min-width: 100px) and (max-width: 1000px) {
   .popup--display {
     height: 60vh !important;
   }

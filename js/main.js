@@ -5,11 +5,13 @@ const $formStory = $container.querySelector('.form-story')
 const $storyArea = $formStory.querySelector('.story-area')
 const $popUp = $formStory.querySelector('.popup')
 const $popUpfinish = $formStory.querySelector('.popup-finish')
+const $storyAreaRead = $formStory.querySelector('.area-read')
 
 
-const $submit = $formStory.querySelector('.button-submit')
+// const $ButtonSubmit = $formStory.querySelector('.button-submit')
 const $buttonNext = $formStory.querySelector('.button-next')
 const $buttonReturn = $formStory.querySelector('.button-return')
+
 
 
 let userName, userStory
@@ -78,17 +80,7 @@ const popUpInsert = () =>
     })
 }
 
-$submit.addEventListener('click', _event => 
-{
-    _event.preventDefault()
-    userName = document.querySelector('.name').value
-    userStory = document.querySelector('.story-area').value
 
-    sendPost({
-            user_name: userName,
-            user_story: userStory
-    })
-})
 
 const togglePopUp = () =>
 {
@@ -111,13 +103,30 @@ $buttonNext.addEventListener('click', (_event) =>
 })
 
 
+const insertTextArena = () =>
+{
+    let textStory, textName
+    getPost().then( response =>
+        { 
+            textStory = response.message
+            textName = response.author
+            console.log(textStory)
+        })
+    console.log(textStory)
+    $storyAreaRead.innerHTML = textStory
+}
+insertTextArena()
 
+// $ButtonSubmit.addEventListener('click', _event => 
+// {
+//     _event.preventDefault()
+//     userName = document.querySelector('.name').value
+//     userStory = document.querySelector('.story-area').value
 
-
-
-
-
-
-
+//     sendPost({
+//             user_name: userName,
+//             user_story: userStory
+//     })
+// })
 
 

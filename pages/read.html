@@ -10,27 +10,40 @@
 </head>
 <body>
     <div class="container">
+
         <div class="background-block-top"></div>
         <canvas class="js-canvas-wave canvas-wave"></canvas>
 
         <div class="menu-container">
+
             <div class="round-return">
                 <div class="arrow-return"></div>
             </div>
+
             <div class="nav-parameters">
                 <img src="../images/svg/dark-mode.svg" alt="" class="dark-mode-toggle">
                 <img src="../images/svg/sound.svg" alt="" class="sound-toggle">
             </div>
+    
         </div>
 
-        <form action="" method="post" class="form-story">
+        <form class="form-story">
 
-            <textarea class="story-area" name="user_story" placeholder="Racontez-nous votre histoire..."></textarea>
+            <textarea class="story-area area-read" name="user_story" placeholder="Racontez-nous votre histoire..." readonly></textarea>
 
             <div class="button-next">
-                <div class="arrow"></div><button class="button-pop">Suivant</button>    
+                <div class="arrow"></div><button class="button-pop">Lecture terminé</button>    
             </div>
-    
+
+            <div class="popup">
+                <div class="menu-buttons-container">
+                    <input type="button" value="lire" class="menu-button">
+                    <input type="button" value="écrire" class="menu-button">
+                </div>
+                <div class="round-return button-return">
+                        <div class="arrow-return"></div>
+                </div>
+            </div>
 
         </form>
         <div class="background-block-bottom"></div>

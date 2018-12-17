@@ -200,7 +200,9 @@ html
             display: flex;
             justify-content: space-around;
             align-items: center;
-            width: 120px;
+            width: 200px;
+            height: 10vh;
+
 
             .button-pop
             {
@@ -267,6 +269,7 @@ html
             display: flex;
             flex-direction: row;
             justify-content: space-around;
+            align-items: center;
             width: 100%;
         }
         .bottom-name
@@ -324,14 +327,18 @@ html
     }
 }
 
-@media screen and (min-width: 1000px) {
-    .popup--display {
+@media screen and (min-width: 1000px) 
+{
+    .popup--display 
+    {
         width: 40vw !important;
 
     }
   }
-  @media screen and (min-width: 100px) {
-    .popup--display {
+  @media screen and (min-width: 100px) and (max-width: 1000px)
+  {
+    .popup--display 
+    {
         height: 60vh !important;
 
     }
