@@ -38,7 +38,10 @@ class StorySender {
 
     public function chooseId() {
         $this->_randomIndex = rand(1, $this->_i - 1);
-        $this->testId();
+        
+        // change for prod
+        $this->_isValidIndex = true;
+        // $this->testId();
     }
 
     function testId() {
@@ -82,6 +85,16 @@ class StorySender {
         } catch (Exception $e) {
             die('Error :'.$e->getMessage());
         }
+    }
+
+    public function computeReadTime($story)
+    {
+        // 10 chars per second-read time base
+        $readTime = 15;
+
+        $textFactor = strlen($story) * 0.1;
+
+        return $readTime + $textFactor;
     }
 }
 
@@ -153,6 +166,8 @@ class StorySender {
 // // gets the message from the result of the query
 // $resArray = $req->fetch();
 
+
+
 $storySender = new StorySender($db);
 
 while (!$storySender->getIndexValidity()) {
@@ -161,7 +176,11 @@ while (!$storySender->getIndexValidity()) {
 
 $resArray = $storySender->getMessage();
 
-$storySender->addToRead();
+$readTime = $storySender->computeReadTime($resArray['messages']);
+$_SESSION['readtime'] = $readTime;
+
+// change for prod
+// $storySender->addToRead();
 
 $mood = Validator::getMood(json_encode(array('text' => $resArray['messages'])));
 

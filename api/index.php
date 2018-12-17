@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require('model.php');
 require('Class/Validator.php');
 
@@ -16,3 +18,5 @@ if (isset($_GET['action'])) {
 } else {
     die();
 }
+
+session_destroy();

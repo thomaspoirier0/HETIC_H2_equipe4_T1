@@ -11,19 +11,31 @@ $story = Validator::check($data['user_story']);
 
 if ($author && $story) {
 
-    try {
-        $req = $db->prepare('INSERT INTO messages_storea(author, messages) VALUES (:author, :story)');
+    if (Validator::isLongEnough($data['user_name']) && Validator::isLongEnough($data['user_story'])) {
+        
+        try {
+            $req = $db->prepare('INSERT INTO messages_storea(author, messages) VALUES (:author, :story)');
+        
+            $req->execute(array(
+                'author' => $author,
+                'story' => $story
+            ));
     
-        $req->execute(array(
-            'author' => $author,
-            'story' => $story
-        ));
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo 'Error 500 : internal server error';
+            die('Error :'.$e->getMessage());
+        }
+    
+        echo 'OK';
 
-    } catch (Exception $e) {
-        die('Error :'.$e->getMessage());
+    } else {
+
+        echo 'Error : the text you submitted were too short';
+        http_response_code(400);
+
     }
 
-    echo 'OK';
 
 } else {
     echo 'Error : the informations you submitted were not formatted correctly';
