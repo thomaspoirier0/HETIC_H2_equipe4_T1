@@ -69,7 +69,7 @@ class waveGenerator
 }
 const bounce = (nodeArr) =>
 {
-    nodeArr[1] = waveHeight/2*Math.sin(nodeArr[2]/20)+$canvas.height/2
+    nodeArr[1] = waveHeight/3*Math.sin(nodeArr[2]/20)+$canvas.height/2
     nodeArr[2] = nodeArr[2] + nodeArr[3]
 }
 
@@ -198,41 +198,26 @@ class typeWritterMotto
 
 // Dark Mode 
 
-class darkMode
-{
-    constructor(element, toColor)
-    {
-        this.element = element
-        this.toColor = toColor
-        this.colorFade()
-    }
-    colorFade()
-    {
-        for(let i = 0; i < this.element.length; i++)
-        {
-            this.element[i].style.background = this.toColor
-        }
-        console.log('switch')
-    }
-}
-
 const darkModeButton = document.querySelector('.dark-mode-toggle')
 const navParameters = document.querySelector('.nav-parameters')
 
 let darkModeStatus = false
 let oldColor = window.getComputedStyle($menuContainer).getPropertyValue('background-color')
 let newColor = '#142A3B'
+let root = document.documentElement
 darkModeButton.addEventListener('click', () =>
 {
     if(!darkModeStatus)
     {
         const headerDarkMode = new darkMode([$menuContainer, $menu], newColor)
+        root.style.setProperty('--buttons-color', '#FFFFFF')
         darkModeStatus = true
     }
     else
     {
         const headerDarkMode = new darkMode([$menuContainer], oldColor)
         const menuDarkMode = new darkMode([$menu], '#FFFFFF')
+        root.style.setProperty('--buttons-color', '#7fb8f5')
         darkModeStatus = false
     }
 })

@@ -1,14 +1,32 @@
+:root {
+  --top-background-color: #201a38;
+  --buttons-color: #7FB8F5; }
+
+.menu-button {
+  width: 80%;
+  height: 45px;
+  background: transparent;
+  color: var(--buttons-color);
+  border: 1px solid var(--buttons-color);
+  border-radius: 7px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 200;
+  text-transform: capitalize; }
+  .menu-button:first-of-type {
+    margin-bottom: 30px; }
+
 html,
 body {
   font-size: 62.5%;
-  background: #201a38; }
+  background: var(--top-background-color); }
 
 .menu-container {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100vh;
-  background: #201a38;
+  background: var(--top-background-color);
   transition: all 1s cubic-bezier(0.13, 0.34, 0.16, 0.93); }
   .menu-container .nav-parameters {
     width: 100%;
@@ -67,19 +85,6 @@ body {
       flex-direction: column;
       justify-content: space-around;
       align-items: center; }
-      .menu-container .menu .menu-buttons-container .menu-button {
-        width: 80%;
-        height: 45px;
-        background: transparent;
-        color: #7FB8F5;
-        border: 1px solid #7FB8F5;
-        border-radius: 7px;
-        font-family: 'Poppins', sans-serif;
-        font-size: 1.6rem;
-        font-weight: 200;
-        text-transform: capitalize; }
-        .menu-container .menu .menu-buttons-container .menu-button:first-of-type {
-          margin-bottom: 30px; }
     .menu-container .menu .info-scroller {
       display: flex;
       flex-direction: column;
@@ -92,12 +97,12 @@ body {
         font-family: 'Poppins', sans-serif;
         font-size: 1.2rem;
         font-weight: 200;
-        color: #7FB8F5; }
+        color: var(--buttons-color); }
       .menu-container .menu .info-scroller .downside-arrow {
         width: 1.2rem;
         height: 1.2rem;
-        border-right: 1px solid #7FB8F5;
-        border-bottom: 1px solid #7FB8F5;
+        border-right: 1px solid var(--buttons-color);
+        border-bottom: 1px solid var(--buttons-color);
         transform: rotate(45deg);
         transition: transform 0.2s ease-in-out; }
       .menu-container .menu .info-scroller:hover .downside-arrow {

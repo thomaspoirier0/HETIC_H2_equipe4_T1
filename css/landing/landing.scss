@@ -1,14 +1,31 @@
 // Init CSS Variables
-$textSelect: blue;
-$top-background-color: #201a38;
-$bottom-background-color: #FFFFFF;
-$buttons-color: #7FB8F5;
+:root{
+    --top-background-color: #201a38;
+    --buttons-color: #7FB8F5;
+}
+// Global CSS 
+.menu-button{
+    width: 80%;
+    height: 45px;
+    background: transparent;
+    color: var(--buttons-color);
+    border: 1px solid var(--buttons-color);
+    border-radius: 7px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 200;
+    text-transform: capitalize;
+    &:first-of-type{
+        margin-bottom: 30px;
+    }
+}
+
 
 // Doc Init
 html,
 body{
     font-size: 62.5%;
-    background: $top-background-color;
+    background: var(--top-background-color);
 }
 
 // CSS Home Page
@@ -17,7 +34,7 @@ body{
     flex-direction: column;
     width: 100%;
     height: 100vh;
-    background: $top-background-color;
+    background: var(--top-background-color);
     transition: all 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
     .nav-parameters{
         width: 100%;
@@ -90,21 +107,6 @@ body{
             flex-direction: column;
             justify-content: space-around;
             align-items: center;
-            .menu-button{
-                width: 80%;
-                height: 45px;
-                background: transparent;
-                color: $buttons-color;
-                border: 1px solid $buttons-color;
-                border-radius: 7px;
-                font-family: 'Poppins', sans-serif;
-                font-size: 1.6rem;
-                font-weight: 200;
-                text-transform: capitalize;
-                &:first-of-type{
-                    margin-bottom: 30px;
-                }
-            }
         }
         .info-scroller{
             //position: absolute;
@@ -119,13 +121,13 @@ body{
                 font-family: 'Poppins', sans-serif;
                 font-size: 1.2rem;
                 font-weight: 200;
-                color: $buttons-color;
+                color: var(--buttons-color);
             }
             .downside-arrow{
                 width: 1.2rem;
                 height: 1.2rem;
-                border-right: 1px solid $buttons-color;
-                border-bottom: 1px solid $buttons-color;
+                border-right: 1px solid var(--buttons-color);
+                border-bottom: 1px solid var(--buttons-color);
                 transform: rotate(45deg);
                 transition: transform 0.2s ease-in-out;
             }
