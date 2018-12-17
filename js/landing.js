@@ -36,6 +36,10 @@ const update = () =>
         {
             bounce(waves[i].nodes[j])
         }
+        for (let k = 0; k <= nodes+2; k++)
+        {
+            waves[i].nodes[k][0] = (k-1) * $canvas.width / nodes
+        }
         drawWave(waves[i])
     }
     waves[waves.length-1].colour = window.getComputedStyle($menu).getPropertyValue('background-color')
