@@ -64,7 +64,6 @@ class waveGenerator
             this.nodes.push(temp)
         }
         waves.push(this)
-        console.log(waves)
     }
 }
 const bounce = (nodeArr) =>
@@ -203,14 +202,17 @@ const navParameters = document.querySelector('.nav-parameters')
 
 let darkModeStatus = false
 let oldColor = window.getComputedStyle($menuContainer).getPropertyValue('background-color')
-let newColor = '#142A3B'
+let newColorTop = '#142A3B'
+let newColorBottom = '#132431'
 let root = document.documentElement
 darkModeButton.addEventListener('click', () =>
 {
     if(!darkModeStatus)
     {
-        const headerDarkMode = new darkMode([$menuContainer, $menu], newColor)
+        const headerDarkMode = new darkMode([$menuContainer], newColorTop)
+        const menuDarkMode = new darkMode([$menu], newColorBottom)
         root.style.setProperty('--buttons-color', '#FFFFFF')
+        root.style.setProperty('--buttons-text-color', '#000000')
         darkModeStatus = true
     }
     else
@@ -218,6 +220,7 @@ darkModeButton.addEventListener('click', () =>
         const headerDarkMode = new darkMode([$menuContainer], oldColor)
         const menuDarkMode = new darkMode([$menu], '#FFFFFF')
         root.style.setProperty('--buttons-color', '#7fb8f5')
+        root.style.setProperty('--buttons-text-color', '#FFFFFF')
         darkModeStatus = false
     }
 })

@@ -2,6 +2,7 @@
 :root{
     --top-background-color: #201a38;
     --buttons-color: #7FB8F5;
+    --buttons-text-color: #ffffff;
 }
 // Global CSS 
 .menu-button{
@@ -15,6 +16,10 @@
     font-size: 1.6rem;
     font-weight: 200;
     text-transform: capitalize;
+    &:hover{
+        background: var(--buttons-color);
+        color: var(--buttons-text-color);
+    }
     &:first-of-type{
         margin-bottom: 30px;
     }

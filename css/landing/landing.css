@@ -1,6 +1,7 @@
 :root {
   --top-background-color: #201a38;
-  --buttons-color: #7FB8F5; }
+  --buttons-color: #7FB8F5;
+  --buttons-text-color: #ffffff; }
 
 .menu-button {
   width: 80%;
@@ -13,6 +14,9 @@
   font-size: 1.6rem;
   font-weight: 200;
   text-transform: capitalize; }
+  .menu-button:hover {
+    background: var(--buttons-color);
+    color: var(--buttons-text-color); }
   .menu-button:first-of-type {
     margin-bottom: 30px; }
 

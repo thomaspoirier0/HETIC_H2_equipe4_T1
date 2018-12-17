@@ -14,6 +14,5 @@ class darkMode
         {
             this.element[i].style.background = this.toColor
         }
-        console.log('switch')
     }
 }
