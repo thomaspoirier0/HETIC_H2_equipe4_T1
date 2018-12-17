@@ -1,7 +1,10 @@
 const $container = document.querySelector('.container')
 const $formStory = $container.querySelector('.form-story')
 const $submit = $formStory.querySelector('.button-submit')
-const $buttonPop = $formStory.querySelector('.button-pop')
+
+const $buttonNext = $formStory.querySelector('.button-next')
+const $buttonPop = $buttonNext.querySelector('.button-pop')
+
 const $popUpname = $formStory.querySelector('.popup-name')
 const $storyArea = $formStory.querySelector('.story-area')
 const $buttonReturn = document.querySelector('.button-return')
@@ -77,7 +80,10 @@ $submit.addEventListener('click', _event =>
 })
 
 
-$buttonPop.addEventListener('click', (_event) => 
+
+
+
+$buttonNext.addEventListener('click', (_event) => 
 {
     _event.preventDefault()
     $popUpname.classList.add('popup--display')
@@ -85,3 +91,15 @@ $buttonPop.addEventListener('click', (_event) =>
     $storyArea.setAttribute('disabled', 'none')
 
 })
+
+
+
+
+
+
+
+
+
+
+
+

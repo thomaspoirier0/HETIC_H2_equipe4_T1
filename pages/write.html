@@ -26,15 +26,21 @@
         <form action="" method="post" class="form-story">
 
             <textarea class="story-area" name="user_story" placeholder="Racontez-nous votre histoire..."></textarea>
-            <button class="button-pop">Envoyer</button>    
-    
 
+            <div class="button-next">
+                <div class="arrow"></div><button class="button-pop">Suivant</button>    
+            </div>
+    
             <div class="popup-name">
                 <label for="name">Signez votre histoire</label>
-                <input type="text" class="name" name="user_name" placeholder="Votre nom"/>
+                <input type="text" class="name" name="user_name" placeholder="Harry Potdefleur"/>
                 <div class="button-flex">
-                    <button class="button-return">Retour</button> 
-                    <button type="submit" class="button-submit">Envoyer</button> 
+                    <div class="round-return button-return">
+                        <div class="arrow-return"></div>
+                    </div>      
+                    <div class="button-next button-submit">
+                        <div class="arrow"></div><button type="submit">Envoyer</button> 
+                    </div>
                 </div>
             </div>
 

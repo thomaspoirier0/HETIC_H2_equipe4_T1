@@ -3,6 +3,7 @@ $textSelect: blue;
 $top-background-color: #201a38;
 $bottom-background-color: #FFFFFF;
 $buttons-color: #7FB8F5;
+$arrowNext: #7FB2F0;
 
 html
 {
@@ -35,6 +36,48 @@ html
     position: absolute;
     z-index: -1;
 }
+
+
+/*
+* arrow
+*/
+.arrow
+{
+
+    width: 1rem;
+    height: 1rem;
+    border-right: 1px solid $buttons-color;
+    border-bottom: 1px solid $buttons-color;
+    transform: rotate(320deg);
+    transition: transform 0.2s ease-in-out;
+
+}
+
+.round-return
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 2px solid white;
+    width: 30px;
+    height: 30px;
+
+
+    .arrow-return
+    {
+        position: relative;
+        left: 3px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        padding: 15px;
+        transform: rotate(135deg) scale(0.4);
+    }
+}
+
+/*
+* Container
+*/
 .container 
 {
     display: flex;
@@ -57,27 +100,6 @@ html
         width: 95vw;
         background: $top-background-color;
         transition: all 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
-
-        .round-return
-        {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            border: 2px solid white;
-            width: 30px;
-            height: 30px;
-
-
-            .arrow-return
-            {
-                position: relative;
-                left: 3px;
-                border: solid white;
-                border-width: 0 3px 3px 0;
-                padding: 15px;
-                transform: rotate(135deg) scale(0.4);
-            }
         }
 
         .nav-parameters
@@ -96,7 +118,7 @@ html
                 }
             }
         }
-    }
+    
 
 
 
@@ -106,7 +128,7 @@ html
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        width: 90vw;
+        width: 80vw;
         height: 100vh;
         margin: auto;
         user-select: none;
@@ -145,11 +167,35 @@ html
                 border-color: blue;
             }
         }
-        .button-pop
-        {
-            font-size: 25px;
-            color: black;
 
+        .button-return
+        {
+            border: 2px solid $arrowNext;
+            
+
+            .arrow-return
+            {
+                border: 2px solid $arrowNext;
+                border-width: 0 3px 3px 0;
+
+
+            }
+
+        }
+
+        .button-next
+        {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 120px;
+
+            .button-pop
+            {
+                font-size: 20px;
+                color: black;
+    
+            }
         }
         
     }
@@ -157,6 +203,12 @@ html
     .popup-name
     {
         display: none;
+
+        label
+        {
+            font-size: 20px;
+            font-weight: bold;
+        }
     }
     .popup--display
     {
@@ -183,8 +235,9 @@ html
 
         input
         {
-            border-width: 0px 0px 1px 0px;
-            text-align: center;
+            border: 0;
+            outline: 0;
+            text-align: left;
         }
     }
 

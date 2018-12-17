@@ -28,6 +28,39 @@ html {
   z-index: -1;
 }
 
+/*
+* arrow
+*/
+.arrow {
+  width: 1rem;
+  height: 1rem;
+  border-right: 1px solid #7FB8F5;
+  border-bottom: 1px solid #7FB8F5;
+  transform: rotate(320deg);
+  transition: transform 0.2s ease-in-out;
+}
+
+.round-return {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 2px solid white;
+  width: 30px;
+  height: 30px;
+}
+.round-return .arrow-return {
+  position: relative;
+  left: 3px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  padding: 15px;
+  transform: rotate(135deg) scale(0.4);
+}
+
+/*
+* Container
+*/
 .container {
   display: flex;
   flex-direction: column;
@@ -49,34 +82,17 @@ html {
   background: #201a38;
   transition: all 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
 }
-.container .menu-container .round-return {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  border: 2px solid white;
-  width: 30px;
-  height: 30px;
-}
-.container .menu-container .round-return .arrow-return {
-  position: relative;
-  left: 3px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  padding: 15px;
-  transform: rotate(135deg) scale(0.4);
-}
-.container .menu-container .nav-parameters {
+.container .nav-parameters {
   width: 100%;
   height: 50px;
   padding: 10px 20px;
   display: flex;
   justify-content: flex-end;
 }
-.container .menu-container .nav-parameters img {
+.container .nav-parameters img {
   width: 30px;
 }
-.container .menu-container .nav-parameters img:first-of-type {
+.container .nav-parameters img:first-of-type {
   margin: 0 20px;
 }
 .container form {
@@ -84,7 +100,7 @@ html {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 90vw;
+  width: 80vw;
   height: 100vh;
   margin: auto;
   user-select: none;
@@ -113,12 +129,29 @@ html {
 .container form .story-area :focus {
   border-color: blue;
 }
-.container form .button-pop {
-  font-size: 25px;
+.container form .button-return {
+  border: 2px solid #7FB2F0;
+}
+.container form .button-return .arrow-return {
+  border: 2px solid #7FB2F0;
+  border-width: 0 3px 3px 0;
+}
+.container form .button-next {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 120px;
+}
+.container form .button-next .button-pop {
+  font-size: 20px;
   color: black;
 }
 .container .popup-name {
   display: none;
+}
+.container .popup-name label {
+  font-size: 20px;
+  font-weight: bold;
 }
 .container .popup--display {
   position: absolute;
@@ -141,8 +174,9 @@ html {
   width: 70%;
 }
 .container .popup--display input {
-  border-width: 0px 0px 1px 0px;
-  text-align: center;
+  border: 0;
+  outline: 0;
+  text-align: left;
 }
 
 /*# sourceMappingURL=main.css.map */
