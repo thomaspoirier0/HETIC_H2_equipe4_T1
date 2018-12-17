@@ -11,8 +11,8 @@ $story = Validator::check($data['user_story']);
 
 if ($author && $story) {
 
-    if (Validator::isLongEnough($data['user_name']) && Validator::isLongEnough($data['user_story'])) {
-        
+    if (Validator::isLongEnough($data['user_story'])) {
+            
         try {
             $req = $db->prepare('INSERT INTO messages_storea(author, messages) VALUES (:author, :story)');
         

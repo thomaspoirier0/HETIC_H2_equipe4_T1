@@ -4,7 +4,7 @@ class Validator {
 
     public static function check($field) {
         if(!empty($field)) {
-            return htmlspecialchars($field);
+            return self::moderate(htmlspecialchars($field));
         } else {
             return false;
         }
@@ -18,8 +18,19 @@ class Validator {
         };
     }
 
-    public static function moderate($field) {
-        echo 'lol';
+    public static function moderate($input) {
+        $input = 'text='.urlencode($input);
+        $curl = curl_init();      
+        curl_setopt($curl, CURLOPT_URL, "http://api1.webpurify.com/services/rest/?method=webpurify.live.replace&api_key=331d24ff7b559264b72c0aeca03560ee&format=json&replacesymbol=*");
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $input);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+
+        return $response;
     }
 
     public static function isJson($string) {
@@ -122,10 +133,13 @@ class Validator {
 
         // curl_setopt_array($curl, $opts);
 
-        $response = json_decode(curl_exec($curl), true);
+        $response = curl_exec($curl);
 
         curl_close($curl);
 
         return $response;
     }
 }
+
+// "Content-Language: fr"
+// "Accept-Language: fr"
