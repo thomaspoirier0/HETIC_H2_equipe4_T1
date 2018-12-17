@@ -29,7 +29,7 @@ html
 /*
 * WaweBackground
 */
-.canvas-wawe
+.canvas-wave
 {
     width: 100%;
     position: absolute;
@@ -49,21 +49,49 @@ html
     */
     .menu-container 
     {
+        margin-top: 10px;
         display: flex;
-        flex-direction: column;
-        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 95vw;
         background: $top-background-color;
         transition: all 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
 
-        .nav-parameters{
+        .round-return
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            border: 2px solid white;
+            width: 30px;
+            height: 30px;
+
+
+            .arrow-return
+            {
+                position: relative;
+                left: 3px;
+                border: solid white;
+                border-width: 0 3px 3px 0;
+                padding: 15px;
+                transform: rotate(135deg) scale(0.4);
+            }
+        }
+
+        .nav-parameters
+        {
             width: 100%;
             height: 50px;
             padding: 10px 20px;
             display: flex;
             justify-content: flex-end;
-            img{
+            img
+            {
                 width: 30px;
                 &:first-of-type{
+
                     margin: 0 20px;
                 }
             }
@@ -83,6 +111,8 @@ html
         margin: auto;
         user-select: none;
         -moz-user-select: none;
+        margin-top: -10px;
+
 
         .name
         {
