@@ -41,6 +41,8 @@ html,
 body{
     font-size: 62.5%;
     scroll-behavior: smooth;
+    background: #FFFFFF;
+    transition: background-color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
 }
 
 // CSS Home Page
@@ -114,7 +116,7 @@ body{
         flex-grow: 1;
         background: #FFFFFF;
         transition: background-color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
-        .js-waves{
+        .js-canvas-wave{
             width: 100%;
             height: auto;
             margin-bottom: 50px;

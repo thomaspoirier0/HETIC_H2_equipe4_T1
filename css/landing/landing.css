@@ -33,7 +33,9 @@
 html,
 body {
   font-size: 62.5%;
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth;
+  background: #FFFFFF;
+  transition: background-color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93); }
 
 .menu-container {
   display: flex;
@@ -92,7 +94,7 @@ body {
     flex-grow: 1;
     background: #FFFFFF;
     transition: background-color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93); }
-    .menu-container .menu .js-waves {
+    .menu-container .menu .js-canvas-wave {
       width: 100%;
       height: auto;
       margin-bottom: 50px; }

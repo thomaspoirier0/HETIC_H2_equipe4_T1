@@ -1,27 +1,23 @@
-/**
- * WaweBackground
- */
+// Canvas wave Home Page
+const $menuContainer = document.querySelector('.menu-container')
+const $body = document.querySelector('body')
+
 const $canvas = document.querySelector('.js-canvas-wave')
 const context = $canvas.getContext('2d')
 
 let windowWidth = window.innerWidth
 let windowHeight = window.innerHeight
 
-
 const nodes = 3
 const waves = []
 let waveHeight = 100
-
-const waveColors = ["rgba(66, 165, 232, 0.5)","rgba(66, 165, 232, 0.5)","rgba(114, 190, 252, 0.5)", "white"]
+let waveColors = ["#6BB9F0","#19B5FE","#60B6FF", "#89C4F4", '#FFFFFF']
 
 const waveHeader = () =>
 {
     resizeWaveCanvas()
     window.addEventListener('resize', resizeWaveCanvas)
-    window.addEventListener('orientationchange', (_event) =>
-    {
-        resizeWaveCanvas()
-    })
+    window.addEventListener('orientationchange', resizeWaveCanvas)
     for (let i = 0; i < waveColors.length; i++)
     {
         const temp = new waveGenerator(waveColors[i], 1, nodes)
@@ -30,20 +26,26 @@ const waveHeader = () =>
 }
 const update = () =>
 {
-    context.fillStyle = '#201a38'
+    context.fillStyle = window.getComputedStyle($menuContainer).getPropertyValue('background-color')
     context.globalCompositeOperation = 'source-over'
     context.fillRect(0,0,$canvas.width,$canvas.height)
+    //context.globalCompositeOperation = "screen";
     for (let i = 0; i < waves.length; i++)
     {
         for (var j = 0; j < waves[i].nodes.length; j++)
         {
             bounce(waves[i].nodes[j])
         }
+        for (let k = 0; k <= nodes+2; k++)
+        {
+            waves[i].nodes[k][0] = (k-1) * $canvas.width / nodes
+        }
         drawWave(waves[i])
     }
+    waves[waves.length-1].colour = window.getComputedStyle($body).getPropertyValue('background-color')
     context.fillStyle = '#FFFFFF'
 
-window.requestAnimationFrame(update)
+    window.requestAnimationFrame(update)
 }
 class waveGenerator
 {
@@ -66,7 +68,7 @@ class waveGenerator
 }
 const bounce = (nodeArr) =>
 {
-    nodeArr[1] = waveHeight/2*Math.sin(nodeArr[2]/20)+$canvas.height/2
+    nodeArr[1] = waveHeight/3*Math.sin(nodeArr[2]/20)+$canvas.height/2
     nodeArr[2] = nodeArr[2] + nodeArr[3]
 }
 
@@ -103,7 +105,7 @@ const resizeWaveCanvas = () =>
 {
     windowWidth = window.innerWidth
     windowHeight = window.innerHeight
-    // waveHeight = windowHeight
+    waveHeight = windowHeight/7
 
     $canvas.width = windowWidth
     $canvas.height = waveHeight
