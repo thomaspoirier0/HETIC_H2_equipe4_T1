@@ -6,7 +6,7 @@ body{
 
 // Init CSS Variables
 $textSelect: blue;
-$top-background-color: #0C003E;
+$top-background-color: #201a38;
 $bottom-background-color: #FFFFFF;
 $buttons-color: #7FB8F5;
 
@@ -50,11 +50,22 @@ $buttons-color: #7FB8F5;
             margin-bottom: 40px;
         }
         .motto{
+            position: relative;
+            height: 1.4rem;
             color: #FFFFFF;
             font-family: 'Poppins', sans-serif;
             font-size: 1.4rem;
             font-weight: 200;
             margin-bottom: 20px;
+            &::after{
+                position: absolute;
+                content: '';
+                width: 2px;
+                height: 100%;
+                right: -5px;
+                background: #FFFFFF;
+                animation: type-writter-cursor 0.8s infinite;
+            }
         }
     }
     .waves-container{
@@ -94,6 +105,7 @@ $buttons-color: #7FB8F5;
         align-items: center;
         margin-top: auto;
         margin-bottom: 20px; 
+        cursor: pointer;
         .info-text{
             font-family: 'Poppins', sans-serif;
             font-size: 1.2rem;
@@ -107,13 +119,18 @@ $buttons-color: #7FB8F5;
             border-bottom: 1px solid $buttons-color;
             transform: rotate(45deg);
             transition: transform 0.2s ease-in-out;
-            &:hover{
-                transform: translateY(5px) rotate(45deg);
-            }
+        }
+        &:hover .downside-arrow{
+            transform: translateY(5px) rotate(45deg);
         }
     }
 }
 
+@keyframes type-writter-cursor{
+    0%{opacity: 0;}
+    50%{opacity: 1;}
+    100%{opacity: 0;}
+}
 
 // CSS Write Page
 .container {

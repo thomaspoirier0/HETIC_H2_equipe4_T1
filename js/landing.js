@@ -1,3 +1,4 @@
+// Canvas wave Home Page
 const $logoContainer = document.querySelector('.logo-motto-container')
 const $canvas = document.querySelector('.js-waves')
 const context = $canvas.getContext('2d')
@@ -26,7 +27,7 @@ const waveHeader = () =>
 }
 const update = () =>
 {
-    context.fillStyle = window.getComputedStyle($logoContainer ,null).getPropertyValue('background-color')
+    context.fillStyle = window.getComputedStyle($logoContainer).getPropertyValue('background-color')
     context.globalCompositeOperation = 'source-over'
     context.fillRect(0,0,$canvas.width,$canvas.height)
     context.globalCompositeOperation = "screen";
@@ -106,3 +107,78 @@ const resizeWaveCanvas = () =>
     $canvas.height = waveHeight
 }
 waveHeader()
+
+// Typewriter Motto
+
+const $spanMotto = $logoContainer.querySelector('span')
+window
+    .fetch('./databases/motto.json')
+    .then(_responseMotto => _responseMotto.json())
+    .then(_dataMotto =>
+    {
+        console.log(_dataMotto)
+        const textArray = _dataMotto
+        const writeTest = new typeWritterMotto($spanMotto, textArray)
+    })
+    .catch(error => { console.log(error) })
+
+
+class typeWritterMotto
+{
+    constructor($spanMotto, textArray)
+    {
+        this.$spanMotto = $spanMotto
+        this.textArray = textArray
+        this.indexText = 0
+        this.initMotto()
+        
+    }
+
+    initMotto()
+    {
+        if(this.indexText < this.textArray.length)
+        {
+            this.addMotto(this.textArray[this.indexText].mottoDescription)
+            this.indexText++
+        }
+        else if(this.indexText == this.textArray.length)
+        {
+            this.indexText = 0
+            this.initMotto()
+        }
+    }
+
+    addMotto(textToWrite)
+    {
+        let timeToWait = 80
+        for(let i = 0; i < textToWrite.length; i++)
+        {
+            timeToWait += 80
+            setTimeout(() =>
+            {
+                let temp = $spanMotto.innerText
+                this.$spanMotto.innerText = temp + textToWrite[i]
+            },80+i*80)
+        }
+        setTimeout(() =>
+        {
+            this.removeMotto(textToWrite, timeToWait)
+        }, 5000 + timeToWait)
+        
+    }
+
+    removeMotto(textToWrite, timeToWait)
+    {
+        for(let i = 0; i <= textToWrite.length; i++)
+        {
+            setTimeout(() =>
+            {
+                this.$spanMotto.innerText = textToWrite.substring(0, textToWrite.length-i)
+            },80+i*80)
+        }
+        setTimeout(() =>
+        {
+            this.initMotto()
+        }, 1000 + timeToWait)
+    }
+}

@@ -14,7 +14,7 @@ body {
     padding: 10px 20px;
     display: flex;
     justify-content: flex-end;
-    background: #0C003E; }
+    background: #201a38; }
     .menu-container .nav-parameters img {
       width: 30px; }
       .menu-container .nav-parameters img:first-of-type {
@@ -26,16 +26,26 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background: #0C003E; }
+    background: #201a38; }
     .menu-container .logo-motto-container .logo {
       max-height: 90px;
       margin-bottom: 40px; }
     .menu-container .logo-motto-container .motto {
+      position: relative;
+      height: 1.4rem;
       color: #FFFFFF;
       font-family: 'Poppins', sans-serif;
       font-size: 1.4rem;
       font-weight: 200;
       margin-bottom: 20px; }
+      .menu-container .logo-motto-container .motto::after {
+        position: absolute;
+        content: '';
+        width: 2px;
+        height: 100%;
+        right: -5px;
+        background: #FFFFFF;
+        animation: type-writter-cursor 0.8s infinite; }
   .menu-container .waves-container {
     width: 100%;
     height: auto; }
@@ -64,7 +74,8 @@ body {
     justify-content: space-around;
     align-items: center;
     margin-top: auto;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    cursor: pointer; }
     .menu-container .info-scroller .info-text {
       font-family: 'Poppins', sans-serif;
       font-size: 1.2rem;
@@ -77,9 +88,16 @@ body {
       border-bottom: 1px solid #7FB8F5;
       transform: rotate(45deg);
       transition: transform 0.2s ease-in-out; }
-      .menu-container .info-scroller .downside-arrow:hover {
-        transform: translateY(5px) rotate(45deg); }
+    .menu-container .info-scroller:hover .downside-arrow {
+      transform: translateY(5px) rotate(45deg); }
 
+@keyframes type-writter-cursor {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 .container {
   display: flex;
   flex-direction: column;
