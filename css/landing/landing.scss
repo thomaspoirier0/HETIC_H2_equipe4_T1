@@ -1,0 +1,143 @@
+// Init CSS Variables
+$textSelect: blue;
+$top-background-color: #201a38;
+$bottom-background-color: #FFFFFF;
+$buttons-color: #7FB8F5;
+
+// Doc Init
+html,
+body{
+    font-size: 62.5%;
+    background: $top-background-color;
+}
+
+// CSS Home Page
+.menu-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background: $top-background-color;
+    transition: all 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
+    .nav-parameters{
+        width: 100%;
+        height: 50px;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: flex-end;
+        img{
+            width: 30px;
+            &:first-of-type{
+                margin: 0 20px;
+            }
+        }
+        .dark-mode-toggle{
+
+        }
+        .sound-toggle{
+
+        }
+    }
+    .logo-motto-container{
+        width: 100%;
+        padding: 10px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        transition: all 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
+        .logo{
+            max-height: 90px;
+            margin-bottom: 40px;
+        }
+        .motto{
+            position: relative;
+            height: 1.4rem;
+            color: #FFFFFF;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 200;
+            margin-bottom: 20px;
+            &::after{
+                position: absolute;
+                content: '';
+                width: 2px;
+                height: 100%;
+                top: 0;
+                right: -5px;
+                background: #FFFFFF;
+                animation: type-writter-cursor 0.8s infinite;
+            }
+        }
+    }
+    .menu{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        flex-grow: 1;
+        background: #FFFFFF;
+        transition: all 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
+        .js-waves{
+            width: 100%;
+            height: auto;
+            margin-bottom: 50px;
+        }
+        .menu-buttons-container{
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            .menu-button{
+                width: 80%;
+                height: 45px;
+                background: transparent;
+                color: $buttons-color;
+                border: 1px solid $buttons-color;
+                border-radius: 7px;
+                font-family: 'Poppins', sans-serif;
+                font-size: 1.6rem;
+                font-weight: 200;
+                text-transform: capitalize;
+                &:first-of-type{
+                    margin-bottom: 30px;
+                }
+            }
+        }
+        .info-scroller{
+            //position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: auto;
+            margin-bottom: 20px; 
+            cursor: pointer;
+            .info-text{
+                font-family: 'Poppins', sans-serif;
+                font-size: 1.2rem;
+                font-weight: 200;
+                color: $buttons-color;
+            }
+            .downside-arrow{
+                width: 1.2rem;
+                height: 1.2rem;
+                border-right: 1px solid $buttons-color;
+                border-bottom: 1px solid $buttons-color;
+                transform: rotate(45deg);
+                transition: transform 0.2s ease-in-out;
+            }
+            &:hover .downside-arrow{
+                transform: translateY(5px) rotate(45deg);
+            }
+        }
+    }
+}
+
+@keyframes type-writter-cursor{
+    0%{opacity: 0;}
+    50%{opacity: 1;}
+    100%{opacity: 0;}
+}

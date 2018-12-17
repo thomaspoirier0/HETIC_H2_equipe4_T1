@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.378 59.8">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 1.5px;
+      }
+    </style>
+  </defs>
+  <g id="Fichier_3" data-name="Fichier 3" transform="translate(0.75 1.313)">
+    <g id="Calque_1" data-name="Calque 1">
+      <path id="Tracé_5" data-name="Tracé 5" class="cls-1" d="M22.92,21.97l-6.471,3.786C8.113,31.345.357,25.86.019,19.283v-.015a6.539,6.539,0,0,1,0-.926h0A9.993,9.993,0,0,1,4.077,11.1L22.913,0Z" transform="translate(-0.002)"/>
+      <path id="Tracé_6" data-name="Tracé 6" class="cls-1" d="M109.28,54.35V83.821L94.335,92.5l0,0-.01-29.386,0,0Z" transform="translate(-71.402 -41.144)"/>
+      <path id="Tracé_7" data-name="Tracé 7" class="cls-1" d="M22.928,111.431l-9.275,5.377C8.018,119.872.265,114.818,0,109.774V79.36c.352,6.577,8.108,12.062,16.447,6.473l6.471-3.788Z" transform="translate(0 -60.077)"/>
+    </g>
+  </g>
+</svg>

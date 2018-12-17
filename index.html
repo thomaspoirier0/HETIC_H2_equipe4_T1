@@ -1,14 +1,36 @@
-!<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <title>Storea - Accueil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/landing/landing.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/reset.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400" rel="stylesheet">
 </head>
 <body>
-
-    <script src="js/main.js"></script>    
+    <div class="menu-container">
+        <div class="nav-parameters">
+            <img src="./images/svg/dark-mode.svg" alt="" class="dark-mode-toggle">
+            <img src="./images/svg/sound.svg" alt="" class="sound-toggle">
+        </div>
+        <div class="logo-motto-container">
+            <img src="./images/svg/logo.svg" alt="" class="logo">
+            <span class="motto"></span>
+        </div>
+        <div class="menu">
+            <canvas class="js-waves"></canvas>
+            <div class="menu-buttons-container">
+                <input type="button" value="lire" class="menu-button">
+                <input type="button" value="écrire" class="menu-button">
+            </div>
+            <div class="info-scroller">
+                <span class="info-text">En savoir plus</span>
+                <div class="downside-arrow"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/landing.js"></script>
 </body>
 </html>
