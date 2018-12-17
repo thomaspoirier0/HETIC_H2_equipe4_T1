@@ -1,19 +1,114 @@
 $textSelect: blue;
 
+html
+{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+/*
+* WaweBackground
+*/
+.canvas-wawe
+{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: -1;
+}
 .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100vw;
+    height: 100vh;
+
+    /*
+    * HEADER
+    */
+
+    .header {
+        
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+        width: 95vw;
+        height: 5vh;
+        margin-top: 20px;
+
+        .round-return
+        {
+            display: block;
+            border-radius: 50%;
+            border: 2px solid white;
+
+
+            .arrow-return 
+            {
+                border: solid white;
+                border-width: 0 3px 3px 0;
+                padding: 15px;
+                transform: rotate(135deg) scale(0.4);
+            }
+        }
+
+        .night-mode
+        {
+            width: 30px;
+            .st0
+            {
+                fill:white;
+            }
+
+        }
+        .equalizer
+        {
+            color: white;
+            display: block;
+
+            .bar 
+            {
+                position: absolute;
+                margin-left: -5px;
+                margin-top: -40px;
+                width: 5px;
+                height: 80px;
+                background: grey;
+                border-radius: 100px;
+                animation-name: equalizer-bar-bounce;
+                animation-duration: 1s;
+                animation-iteration-count: infinite;
+                animation-fill-mode: backwards;
+                transform-origin: center;
+    
+            }
+            .bar-1 { animation-delay: 0.4s;left: -20px;}
+            .bar-2 { animation-delay: 0.8s;left: -10px;}
+            .bar-3 { animation-delay: 0.5s;left: -0px;}
+            .bar-4 { animation-delay: 0.1s;left: 10px;}
+            .bar-5 { animation-delay: 0.7s;left: 20px;}
+    
+            @keyframes equalizer-bar-bounce
+            {
+                0% { transform: scaleY(0.2);}
+                50% { transform: scaleY(0.5);}
+                100% { transform: scaleY(0.2);}
+            }
+        }
+
+    }
+
 
     form 
     {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
         width: 90vw;
         height: 100vh;
+        margin: auto;
         user-select: none;
         -moz-user-select: none;
 
@@ -29,58 +124,61 @@ $textSelect: blue;
     
         }
 
+        .story-area--none
+        {
+            background: grey !important;
+        }
         .story-area
         {
-            border: 0.1px solid grey;
+            background: white;
+            box-shadow: 3px 3px 6px rgba(0, 0, 0, .2);
             width: 100%;
             height: 80%;
             border-radius: 5px;
             resize: none;
+            padding: 20px;
 
             :focus 
             {
                 border-color: blue;
             }
         }
-
         
-
-    }
-    .form-story--none
-    {
-        background-color: grey;
     }
 
     .popup-name
     {
         display: none;
-        
-        .button-submit 
-        {
-            background-color: grey;
-            width: 150px;
-            margin: 0 auto;
-        }
-    
-        .button-submit::before
-        {
-            width: 0;
-            height: 0;
-            border: 0 solid transparent;
-            border-bottom-width: 100px;
-            border-top-width: 100px;
-            border-left: 100px solid black;
-        }
-    
     }
     .popup-name--display
     {
-        display: block;
         position: absolute;
+        top: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
         background-color: white;
-        width: 80vw;
-        height: 50vh;
+        border-radius: 5px;
+        padding: 10px;
+        width: 50vw;
+        height: 30vh;
+        text-align: center;
 
+        .button-flex
+        {
+            display: flex;
+        }
+
+        .button-submit 
+        {
+            width: 150px;
+            margin: 0 auto;
+        }
+        input
+        {
+            border-width: 0px 0px 1px 0px;
+            width: 20%;
+        }
     }
 
 
