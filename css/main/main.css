@@ -32,8 +32,8 @@ html {
 * arrow
 */
 .arrow {
-  width: 1rem;
-  height: 1rem;
+  width: 0.8rem;
+  height: 0.8rem;
   border-right: 1px solid #7FB8F5;
   border-bottom: 1px solid #7FB8F5;
   transform: rotate(320deg);
@@ -136,6 +136,11 @@ html {
   border: 2px solid #7FB2F0;
   border-width: 0 3px 3px 0;
 }
+.container form .button-next--none {
+  opacity: 0;
+  pointer-events: none;
+  cursor: default;
+}
 .container form .button-next {
   display: flex;
   justify-content: space-around;
@@ -154,8 +159,7 @@ html {
   font-weight: bold;
 }
 .container .popup--display {
-  position: absolute;
-  top: 40%;
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -163,20 +167,22 @@ html {
   background-color: white;
   border-radius: 5px;
   padding: 10px;
-  width: 50vw;
-  height: 30vh;
+  width: 70vw;
+  height: 50vh;
   text-align: center;
 }
 .container .popup--display .button-flex {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 70%;
+  justify-content: space-around;
+  width: 100%;
 }
 .container .popup--display input {
   border: 0;
   outline: 0;
   text-align: left;
+  width: 40vw;
+  margin: 0 auto;
 }
 
 /*# sourceMappingURL=main.css.map */

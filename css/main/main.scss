@@ -44,8 +44,8 @@ html
 .arrow
 {
 
-    width: 1rem;
-    height: 1rem;
+    width: 0.8rem;
+    height: 0.8rem;
     border-right: 1px solid $buttons-color;
     border-bottom: 1px solid $buttons-color;
     transform: rotate(320deg);
@@ -182,7 +182,12 @@ html
             }
 
         }
-
+        .button-next--none
+        {
+            opacity: 0;
+            pointer-events: none;
+            cursor: default;
+        }
         .button-next
         {
             display: flex;
@@ -204,6 +209,7 @@ html
     {
         display: none;
 
+
         label
         {
             font-size: 20px;
@@ -212,8 +218,7 @@ html
     }
     .popup--display
     {
-        position: absolute;
-        top: 40%;
+        position: fixed;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -221,16 +226,16 @@ html
         background-color: white;
         border-radius: 5px;
         padding: 10px;
-        width: 50vw;
-        height: 30vh;
+        width: 70vw;
+        height: 50vh;
         text-align: center;
 
         .button-flex
         {
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
-            width: 70%;
+            justify-content: space-around;
+            width: 100%;
         }
 
         input
@@ -238,6 +243,10 @@ html
             border: 0;
             outline: 0;
             text-align: left;
+            width: 40vw;
+            margin: 0 auto;
+
+
         }
     }
 
