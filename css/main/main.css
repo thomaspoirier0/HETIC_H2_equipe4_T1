@@ -1,3 +1,9 @@
+:root {
+  --top-background-color: #201a38;
+  --buttons-color: #7FB8F5;
+  --buttons-text-color: #ffffff;
+}
+
 html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -151,12 +157,15 @@ html {
   font-size: 20px;
   color: black;
 }
-.container .popup-name {
+.container .popup {
   display: none;
 }
-.container .popup-name label {
+.container .popup label {
   font-size: 20px;
   font-weight: bold;
+}
+.container .popup-finish {
+  display: none;
 }
 .container .popup--display {
   position: fixed;
@@ -170,6 +179,20 @@ html {
   width: 70vw;
   height: 50vh;
   text-align: center;
+  font-size: 20px;
+}
+.container .popup--display img {
+  min-width: 20%;
+  max-width: 50px;
+  height: auto;
+}
+.container .popup--display .social-icon {
+  display: flex;
+  justify-content: space-around;
+  width: 15vw;
+}
+.container .popup--display .social-icon img {
+  width: 250px;
 }
 .container .popup--display .button-flex {
   display: flex;
@@ -177,12 +200,62 @@ html {
   justify-content: space-around;
   width: 100%;
 }
+.container .popup--display .bottom-name {
+  border-bottom: 2px solid grey;
+  width: 20vw;
+}
 .container .popup--display input {
   border: 0;
   outline: 0;
   text-align: left;
-  width: 40vw;
+  width: 100%;
   margin: 0 auto;
+  overflow: hidden;
+}
+.container .popup--display .menu-buttons-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .popup--display .menu-buttons-container .menu-button {
+  width: 80%;
+  height: 45px;
+  background: transparent;
+  color: var(--buttons-color);
+  border: 1px solid var(--buttons-color);
+  border-radius: 7px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 200;
+  text-transform: capitalize;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+}
+@media screen and (min-width: 900px) {
+  .container .popup--display .menu-buttons-container .menu-button {
+    width: 25%;
+  }
+}
+.container .popup--display .menu-buttons-container .menu-button:hover {
+  background: var(--buttons-color);
+  color: var(--buttons-text-color);
+}
+.container .popup--display .menu-buttons-container .menu-button:first-of-type {
+  margin-bottom: 30px;
+}
+
+@media screen and (min-width: 1000px) {
+  .popup--display {
+    width: 40vw !important;
+  }
+}
+@media screen and (min-width: 100px) {
+  .popup--display {
+    height: 60vh !important;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
