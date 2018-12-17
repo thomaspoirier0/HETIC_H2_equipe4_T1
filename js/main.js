@@ -110,7 +110,6 @@ const insertTextArena = () =>
         { 
             textStory = response.message
             textName = response.author
-            console.log(textStory)
         })
     console.log(textStory)
     $storyAreaRead.innerHTML = textStory
