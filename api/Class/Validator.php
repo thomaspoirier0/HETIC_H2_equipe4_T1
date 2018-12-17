@@ -115,6 +115,12 @@ class Validator {
         // if (self::isJson(!$curl_post_data)) {
         //     return 'error : the string passed is not a valid JSON string';
         // }
+        $toBeTranslated = $curl_post_data;
+
+        $curl_post_data = self::translate($toBeTranslated);
+
+        var_dump($curl_post_data);
+
         $curl = curl_init();      
         curl_setopt($curl, CURLOPT_URL, "https://gateway-lon.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21");
         curl_setopt($curl, CURLOPT_POST, true);
@@ -133,11 +139,50 @@ class Validator {
 
         // curl_setopt_array($curl, $opts);
 
-        $response = curl_exec($curl);
+        $response = json_decode(curl_exec($curl), true);
 
         curl_close($curl);
 
         return $response;
+    }
+
+    public static function translate($input) {
+
+        try {
+            $input = 'text='.urlencode($input);
+            $curl = curl_init();
+            curl_setopt($curl, CURLOPT_URL, "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20181217T170242Z.e67b92d556ab71d4.9225794281ff6d407d26baedb339152f7784327f&lang=en");
+            curl_setopt($curl, CURLOPT_POST, true);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, $input);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+    
+            $response = curl_exec($curl);
+    
+            
+            // $response = $response['text'][0];
+                        
+            if ($response === false) {
+                throw new Exception(curl_error($curl), curl_errno($curl));
+            }
+            curl_close($curl);
+
+            var_dump($response);
+            $response = json_decode($response, true);
+            
+            var_dump($response);
+            $response = $response['text'][0];
+            
+            var_dump($response);
+            return $response;
+
+        } catch(Exception $e) {
+            // trigger_error(sprintf(
+            //     'Curl failed with error #%d: %s',
+            //     $e->getCode(), $e->getMessage()),
+            //     E_USER_ERROR);
+            die('Error :'.$e->getCode().' '.$e->getMessage());
+        }
     }
 }
 
