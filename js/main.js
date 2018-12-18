@@ -106,6 +106,10 @@ $buttonNext.addEventListener('click', (_event) =>
     togglePopUp()
 
 })
+loaderPost = () =>
+{
+    
+}
 
 
 

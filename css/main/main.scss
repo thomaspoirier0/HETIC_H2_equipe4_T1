@@ -178,11 +178,34 @@ body
             font-size: 1.6rem;
             line-height: 2.2rem;
             resize: none;
-            &:focus
+            padding: 20px 20px 40px 20px;
+
+            
+            p 
+            {
+                font-size: 16px;
+                font-weight: lighter;
+                line-height: 19px;
+                white-space: pre-line;
+                height: 100%;
+                overflow: auto;
+                opacity: 1;
+
+            }
+            .transition-opacity
+            {
+                opacity: 0;
+            }
+
+            :focus 
             {
                 border-color: 2px solid var(--buttons-color);
             }
         }
+
+
+
+
         .label-author
         {
             font-family: 'Dancing Script', cursive;
@@ -192,6 +215,11 @@ body
             text-align: right;
 
         }
+        .transition-opacity-label
+        {
+            opacity: 0;
+        }
+
 
 
         .button-return
@@ -204,6 +232,7 @@ body
             }
 
         }
+        
         .button-next--none
         {
             opacity: 0;
