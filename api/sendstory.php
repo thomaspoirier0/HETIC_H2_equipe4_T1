@@ -182,7 +182,7 @@ $_SESSION['readtime'] = $readTime;
 // change for prod
 // $storySender->addToRead();
 
-$mood = json_decode(Validator::getMood(json_encode(array('text' => $resArray['messages']))), true);
+$mood = json_decode(Validator::getMood($resArray['messages']), true);
 $moderatedMessage = json_decode(Validator::moderate($resArray['messages']), true);
 
 $moodArray = $mood['document_tone']['tones'];
@@ -191,12 +191,6 @@ $moodArray = $mood['document_tone']['tones'];
 $maxConfidence = 0;
 $moodMax;
 if (empty($moodArray)) {
-    // foreach ($moodArray as $mood) {
-    //     if ($mood['score'] > $maxConfidence) {
-    //         $maxConfidence = $mood['score'];
-    //         $moodMax = $mood;
-    //     }
-    // }
     $moodArray = json_decode('[{"tone_id" : "neutral"}]', true);
 }
 
@@ -210,8 +204,5 @@ $response = [
 ];
 
 
-// header('Content-Type: application/json');
-// $response['mood'][0]['tone_id'];
+header('Content-Type: application/json');
 echo json_encode($response);
-// var_dump($moderationResult['rsp']['text']);
-// header('Content-Type: application/json'); 

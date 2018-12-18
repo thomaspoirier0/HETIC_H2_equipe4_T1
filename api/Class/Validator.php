@@ -4,7 +4,7 @@ class Validator {
 
     public static function check($field) {
         if(!empty($field)) {
-            return self::moderate(htmlspecialchars($field));
+            return htmlspecialchars($field);
         } else {
             return false;
         }
@@ -118,8 +118,8 @@ class Validator {
         $toBeTranslated = $curl_post_data;
 
         $curl_post_data = self::translate($toBeTranslated);
-
-        var_dump($curl_post_data);
+        
+        $curl_post_data = json_encode(array('text' => $curl_post_data));
 
         $curl = curl_init();      
         curl_setopt($curl, CURLOPT_URL, "https://gateway-lon.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21");
@@ -139,7 +139,7 @@ class Validator {
 
         // curl_setopt_array($curl, $opts);
 
-        $response = json_decode(curl_exec($curl), true);
+        $response = curl_exec($curl);
 
         curl_close($curl);
 
@@ -167,13 +167,10 @@ class Validator {
             }
             curl_close($curl);
 
-            var_dump($response);
             $response = json_decode($response, true);
             
-            var_dump($response);
             $response = $response['text'][0];
             
-            var_dump($response);
             return $response;
 
         } catch(Exception $e) {
