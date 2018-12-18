@@ -174,7 +174,6 @@ body
             border-radius: 5px;
             padding: 20px 30px 40px 30px;
             white-space: pre-line;
-            overflow: auto;
             font-size: 1.6rem;
             line-height: 2.2rem;
             resize: none;
@@ -202,6 +201,23 @@ body
                 border-color: 2px solid var(--buttons-color);
             }
         }
+        .loader
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            transform-origin: 0 50%;
+            opacity: 0;     
+            transition: opacity 0.3s ease-in-out 0s;
+            width: 150px;
+            height: 150px;       
+        }
+        .loader--display
+        {
+  
+            opacity: 1;    
+        }
 
 
 
@@ -210,9 +226,10 @@ body
         {
             font-family: 'Dancing Script', cursive;
             position: relative;
-            top: -40px;
+            top: -50px;
             width: 80%;
             text-align: right;
+            font-size: 1.5rem;
 
         }
         .transition-opacity-label

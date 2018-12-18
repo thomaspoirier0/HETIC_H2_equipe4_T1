@@ -12,6 +12,7 @@ const $buttonReturn = $formStory.querySelector('.button-return')
 
 
 
+
 let userName, userStory
 
 
@@ -106,10 +107,3 @@ $buttonNext.addEventListener('click', (_event) =>
     togglePopUp()
 
 })
-loaderPost = () =>
-{
-    
-}
-
-
-

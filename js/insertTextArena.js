@@ -9,6 +9,7 @@ const insertTextArena = (message) =>
         {
             console.log(response.message)
             console.log(response.author)
+            loaderPost()
             $storyAreaRead.innerHTML = response.message
             $labelAuthor.innerHTML = response.author 
             timeLeft(response.readtime)
