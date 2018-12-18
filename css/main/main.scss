@@ -170,21 +170,31 @@ body
             border-radius: 5px;
             padding: 20px 20px 40px 20px;
 
+            
             p 
             {
+                font-size: 16px;
+                font-weight: lighter;
+                line-height: 19px;
                 white-space: pre-line;
                 height: 100%;
                 overflow: auto;
+                opacity: 1;
 
             }
-
-            
+            .transition-opacity
+            {
+                opacity: 0;
+            }
 
             :focus 
             {
                 border-color: blue;
             }
         }
+
+
+
 
         .label-author
         {
@@ -194,6 +204,10 @@ body
             width: 80%;
             text-align: right;
 
+        }
+        .transition-opacity-label
+        {
+            opacity: 0;
         }
 
 

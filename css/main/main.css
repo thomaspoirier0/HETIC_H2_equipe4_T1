@@ -139,9 +139,16 @@ body {
   padding: 20px 20px 40px 20px;
 }
 .container form .story-area p {
+  font-size: 16px;
+  font-weight: lighter;
+  line-height: 19px;
   white-space: pre-line;
   height: 100%;
   overflow: auto;
+  opacity: 1;
+}
+.container form .story-area .transition-opacity {
+  opacity: 0;
 }
 .container form .story-area :focus {
   border-color: blue;
@@ -152,6 +159,9 @@ body {
   top: -40px;
   width: 80%;
   text-align: right;
+}
+.container form .transition-opacity-label {
+  opacity: 0;
 }
 .container form .button-return {
   border: 2px solid #7FB2F0;
