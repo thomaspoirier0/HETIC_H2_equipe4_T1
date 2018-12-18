@@ -9,7 +9,7 @@ let windowWidth = window.innerWidth
 let windowHeight = window.innerHeight
 
 const nodes = 3
-const waves = []
+let waves = []
 let waveHeight = 100
 let waveColors = ["#6BB9F0","#19B5FE","#60B6FF", "#89C4F4", '#FFFFFF']
 
@@ -18,6 +18,7 @@ const waveHeader = () =>
     resizeWaveCanvas()
     window.addEventListener('resize', resizeWaveCanvas)
     window.addEventListener('orientationchange', resizeWaveCanvas)
+    waves = []
     for (let i = 0; i < waveColors.length; i++)
     {
         const temp = new waveGenerator(waveColors[i], 1, nodes)
