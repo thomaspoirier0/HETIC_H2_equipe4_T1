@@ -75,26 +75,36 @@ body {
   */
 }
 .container .menu-container {
-  margin-top: 10px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
-  width: 95vw;
-  background: #201a38;
-  transition: all 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
+  width: 100%;
+  padding: 10px 50px;
+  background: var(--top-background-color);
+  transition: background-color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
+  font-family: 'Poppins', sans-serif;
 }
-.container .nav-parameters {
+@media screen and (max-height: 650px) {
+  .container .menu-container {
+    transition: height 0.2s cubic-bezier(0.13, 0.34, 0.16, 0.93);
+  }
+}
+@media screen and (max-width: 900px) {
+  .container .menu-container {
+    padding: 10px 10px;
+  }
+}
+.container .menu-container .nav-parameters {
   width: 100%;
   height: 50px;
-  padding: 10px 20px;
+  padding: 10px 0;
   display: flex;
   justify-content: flex-end;
 }
-.container .nav-parameters img {
+.container .menu-container .nav-parameters img {
   width: 30px;
 }
-.container .nav-parameters img:first-of-type {
+.container .menu-container .nav-parameters img:first-of-type {
   margin: 0 20px;
 }
 .container form {
@@ -110,11 +120,12 @@ body {
   margin-top: -10px;
 }
 .container form .name {
-  border: 0.5px solid grey;
-  border-radius: 5px;
+  height: 35px;
+  border-bottom: 1px solid #000000 !important;
+  transition: border-color 0.2s cubic-bezier(0.13, 0.34, 0.16, 0.93);
 }
-.container form .name :focus {
-  border-color: blue;
+.container form .name:focus {
+  border-color: var(--buttons-color) !important;
 }
 .container form .story-area--none {
   background: grey !important;
@@ -201,10 +212,6 @@ body {
   align-items: center;
   width: 100%;
 }
-.container .popup--display .bottom-name {
-  border-bottom: 2px solid grey;
-  width: 20vw;
-}
 .container .popup--display input {
   border: 0;
   outline: 0;
@@ -232,7 +239,7 @@ body {
   font-size: 1.6rem;
   font-weight: 200;
   text-transform: capitalize;
-  transition: all 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
   text-align: center;
 }
 @media screen and (min-width: 900px) {
