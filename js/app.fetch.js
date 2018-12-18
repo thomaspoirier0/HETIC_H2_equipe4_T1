@@ -3,6 +3,7 @@ const getPost = async function(data)
     try 
     {
         let response = await fetch ('../api/index.php?action=read')
+        loaderPost()
         if(response.ok)
         {
             let responseData = await response.json()
