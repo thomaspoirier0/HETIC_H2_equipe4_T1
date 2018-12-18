@@ -5,7 +5,7 @@
 }
 
 html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -130,6 +130,9 @@ body {
 }
 .container form .story-area :focus {
   border-color: blue;
+}
+.container form .label-author {
+  font-family: 'Dancing Script', cursive;
 }
 .container form .button-return {
   border: 2px solid #7FB2F0;
