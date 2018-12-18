@@ -27,7 +27,6 @@ class MoodInterpreter {
 
     getDominantMood() {
         if (this.moods[0].score) {
-            console.log('case 1')
             this.moods.forEach(mood => {
                 if (
                     mood.score > this.dominantScore && 
