@@ -133,6 +133,7 @@ darkModeButton.addEventListener('click', () =>
         root.style.setProperty('--buttons-text-color', '#000000')
         root.style.setProperty('--concept-text', '#FFFFFF')
         root.style.setProperty('--read-paragraph', '#FFFFFF')
+        darkModeButton.src = '../images/svg/dark-mode-on.svg'
 
         darkModeStatus = true
     }
@@ -146,6 +147,7 @@ darkModeButton.addEventListener('click', () =>
         root.style.setProperty('--buttons-text-color', '#FFFFFF')
         root.style.setProperty('--concept-text', '#000000')
         root.style.setProperty('--read-paragraph', '#000000')
+        darkModeButton.src = '../images/svg/dark-mode-off.svg'
 
         darkModeStatus = false
     }
