@@ -1,4 +1,4 @@
-const $backgroundBlockTop = document.querySelector('.background-block-top')
+const $bottomCanvas = document.querySelector('.bottom-canvas')
 
 const timeLeft = (time) =>
 {
@@ -11,17 +11,12 @@ const timeLeft = (time) =>
     $labelAuthor.classList.add('transition-opacity-label')
     $labelAuthor.style.transition = `opacity ${time/10}s ease ${setTime}s`
 
-    const toBottomWindow = (window.innerHeight/2)-100
+    const toBottomWindow = (window.innerHeight/2)
+
+    $canvas.style.transformOrigin = `translateY(${toBottomWindow}px)`
     $canvas.style.transform = `translateY(${toBottomWindow}px)`
     $canvas.style.transition = `transform ${time}s linear 0s`
 
-
-
-
-    window.setInterval( function() {
-        $backgroundBlockTop.style.transform = `scaleY(${time})`
-        $backgroundBlockTop.style.transition = `transform ${time}s linear 0s`
-    }, timeS)
 
     window.setTimeout( function() {
         togglePopUp()

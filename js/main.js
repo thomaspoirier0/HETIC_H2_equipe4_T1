@@ -12,6 +12,7 @@ const $buttonReturn = $formStory.querySelector('.button-return')
 
 
 
+
 let userName, userStory
 
 
@@ -140,7 +141,6 @@ darkModeButton.addEventListener('click', () =>
         const headerDarkMode = new darkMode([$blockTop, $menuContainer], oldColor)
         const menuDarkMode = new darkMode([$body], '#FFFFFF')
         const readZoneMode = new darkMode([$readZone], '#FFFFFF')
-        const readParagraphMode = new darkMode([$readParagraph], '#FFFFFF')
         root.style.setProperty('--buttons-color', '#7fb8f5')
         root.style.setProperty('--buttons-text-color', '#FFFFFF')
         root.style.setProperty('--concept-text', '#000000')
