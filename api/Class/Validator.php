@@ -21,7 +21,7 @@ class Validator {
     public static function moderate($input) {
         $input = 'text='.urlencode($input);
         $curl = curl_init();      
-        curl_setopt($curl, CURLOPT_URL, "http://api1.webpurify.com/services/rest/?method=webpurify.live.replace&api_key=331d24ff7b559264b72c0aeca03560ee&format=json&replacesymbol=*");
+        curl_setopt($curl, CURLOPT_URL, "http://api1.webpurify.com/services/rest/?method=webpurify.live.replace&api_key=331d24ff7b559264b72c0aeca03560ee&format=json&replacesymbol=*&lang=fr");
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $input);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
