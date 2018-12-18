@@ -246,7 +246,10 @@ body {
   font-family: 'Poppins', sans-serif;
   font-size: 1.6rem;
   font-weight: 200;
+  line-height: 45px;
+  text-align: center;
   text-transform: capitalize;
+  text-decoration: none;
   transition: background-color 0.2s ease-in-out;
   text-align: center;
 }
