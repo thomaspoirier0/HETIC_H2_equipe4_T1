@@ -15,6 +15,7 @@ html
 body
 {
   background: #ffffff;
+  transition: background-color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
 }
 .background-block-top
 {
@@ -36,6 +37,7 @@ body
     position: absolute;
     z-index: -1;
     border-top: 50vh solid var(--top-background-color);
+    transition: border-color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);;
 }
 
 

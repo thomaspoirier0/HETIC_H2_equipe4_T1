@@ -134,6 +134,7 @@ darkModeButton.addEventListener('click', () =>
         root.style.setProperty('--popup-display-color', '#1a2e40')
         root.style.setProperty('--concept-text', '#FFFFFF')
         root.style.setProperty('--read-paragraph', '#FFFFFF')
+        root.style.setProperty('--top-background-color', newColorTop)
         darkModeButton.src = '../images/svg/dark-mode-on.svg'
 
         darkModeStatus = true
@@ -148,6 +149,7 @@ darkModeButton.addEventListener('click', () =>
         root.style.setProperty('--popup-display-color', '#FFFFFF')
         root.style.setProperty('--concept-text', '#000000')
         root.style.setProperty('--read-paragraph', '#000000')
+        root.style.setProperty('--top-background-color', oldColor)
         darkModeButton.src = '../images/svg/dark-mode-off.svg'
 
         darkModeStatus = false
