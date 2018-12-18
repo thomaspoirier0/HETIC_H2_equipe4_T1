@@ -5,10 +5,8 @@ const $formStory = $container.querySelector('.form-story')
 const $storyArea = $formStory.querySelector('.story-area')
 const $popUp = $formStory.querySelector('.popup')
 const $popUpfinish = $formStory.querySelector('.popup-finish')
-const $storyAreaRead = $formStory.querySelector('.area-read')
 
 
-// const $ButtonSubmit = $formStory.querySelector('.button-submit')
 const $buttonNext = $formStory.querySelector('.button-next')
 const $buttonReturn = $formStory.querySelector('.button-return')
 
@@ -17,7 +15,7 @@ const $buttonReturn = $formStory.querySelector('.button-return')
 let userName, userStory
 
 
-const popUpInsert = () =>
+const popUpInsert = (status) =>
 {
 
     const popUp = document.createElement('div')
@@ -33,15 +31,14 @@ const popUpInsert = () =>
 
     buttonReturn.classList.add('round-return')
     buttonReturn.classList.add('button-return')
-
     arrowReturn.classList.add('arrow-return')
 
-
-    let status = 200
+    console.log(status)
     switch (status) {
         case 200:
             $popUp.classList.remove('popup--display')
             $popUpfinish.classList.add('popup--display')
+            console.log('ok')
             return
             break;
         case 404:
@@ -65,8 +62,8 @@ const popUpInsert = () =>
     $popUp.classList.remove('popup--display')
     popUp.appendChild(imagePopUp)
     popUp.appendChild(textPopUp)
-    popUp.appendChild(buttonReturn)
     buttonReturn.appendChild(arrowReturn)
+    popUp.appendChild(buttonReturn)
     
     $formStory.insertBefore(popUp, $popUp);
 
@@ -76,7 +73,10 @@ const popUpInsert = () =>
     {
 
         _event.preventDefault()
-        togglePopUp() 
+        popUp.remove() 
+        $storyArea.classList.remove('story-area--none')
+        $buttonNext.classList.remove('button-next--none')
+        $storyArea.removeAttribute('disabled', 'none')    
     })
 }
 
@@ -94,38 +94,16 @@ $buttonReturn.addEventListener('click', (_event) =>
 {
     _event.preventDefault()
     togglePopUp()
+
 })
 
 $buttonNext.addEventListener('click', (_event) => 
 {
     _event.preventDefault()
+
     togglePopUp()
+
 })
 
-
-const insertTextArena = () =>
-{
-    let textStory, textName
-    getPost().then( response =>
-        { 
-            textStory = response.message
-            textName = response.author
-        })
-    console.log(textStory)
-    $storyAreaRead.innerHTML = textStory
-}
-insertTextArena()
-
-// $ButtonSubmit.addEventListener('click', _event => 
-// {
-//     _event.preventDefault()
-//     userName = document.querySelector('.name').value
-//     userStory = document.querySelector('.story-area').value
-
-//     sendPost({
-//             user_name: userName,
-//             user_story: userStory
-//     })
-// })
 
 

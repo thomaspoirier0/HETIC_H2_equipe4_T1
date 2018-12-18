@@ -3,11 +3,12 @@ const getPost = async function(data)
     try 
     {
         let response = await fetch ('../api/index.php?action=read')
-        if(response.ok) 
+        if(response.ok)
         {
             let responseData = await response.json()
             return responseData
-            console.log(responseData)
+        
+
         }
         else 
         {

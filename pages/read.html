@@ -29,7 +29,7 @@
 
         <form class="form-story">
 
-            <textarea class="story-area area-read" name="user_story" placeholder="Racontez-nous votre histoire..." readonly></textarea>
+            <textarea class="story-area area-read" name="user_story" readonly></textarea>
 
             <div class="button-next">
                 <div class="arrow"></div><button class="button-pop">Lecture terminé</button>    
@@ -37,8 +37,8 @@
 
             <div class="popup">
                 <div class="menu-buttons-container">
-                    <input type="button" value="lire" class="menu-button">
-                    <input type="button" value="écrire" class="menu-button">
+                    <a href='https://francoisxaviermanceau.fr/storea/pages/read.html' class="menu-button"><input type="button" value="lire"></a>
+                    <a href='https://francoisxaviermanceau.fr/storea/pages/write.html' class="menu-button"><input type="button" value="ecrire"></a>
                 </div>
                 <div class="round-return button-return">
                         <div class="arrow-return"></div>
@@ -50,6 +50,7 @@
     </div>
     <script src="../js/waveBackground.js"></script>
     <script src="../js/app.fetch.js"></script>
+    <script src="../js/insertTextArena.js"></script>
     <script src="../js/main.js"></script>
 </body>
 </html>
