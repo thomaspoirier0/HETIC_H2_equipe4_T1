@@ -106,3 +106,46 @@ $buttonNext.addEventListener('click', (_event) =>
     togglePopUp()
 
 })
+
+const darkModeButton = document.querySelector('.dark-mode-toggle')
+
+const root = document.documentElement
+const $menu = $menuContainer.querySelector('.menu')
+
+const $bodyBackground = document.querySelector('body')
+const $blockTop = $bodyBackground.querySelector('.background-block-top')
+const $readZone = $body.querySelector('.story-area')
+
+const newColorTop = '#142A3B'
+const newColorBottom = '#132431'
+const oldColor = window.getComputedStyle($menuContainer).getPropertyValue('background-color')
+
+let darkModeStatus = false
+darkModeButton.addEventListener('click', () =>
+{
+    if(!darkModeStatus)
+    {
+        const headerDarkMode = new darkMode([$blockTop, $menuContainer], newColorTop)
+        const menuDarkMode = new darkMode([$body], newColorBottom)
+        const readZoneMode = new darkMode([$readZone], '#1a2e40')
+        root.style.setProperty('--buttons-color', '#FFFFFF')
+        root.style.setProperty('--buttons-text-color', '#000000')
+        root.style.setProperty('--concept-text', '#FFFFFF')
+        root.style.setProperty('--read-paragraph', '#FFFFFF')
+
+        darkModeStatus = true
+    }
+    else
+    {
+        const headerDarkMode = new darkMode([$blockTop, $menuContainer], oldColor)
+        const menuDarkMode = new darkMode([$body], '#FFFFFF')
+        const readZoneMode = new darkMode([$readZone], '#FFFFFF')
+        const readParagraphMode = new darkMode([$readParagraph], '#FFFFFF')
+        root.style.setProperty('--buttons-color', '#7fb8f5')
+        root.style.setProperty('--buttons-text-color', '#FFFFFF')
+        root.style.setProperty('--concept-text', '#000000')
+        root.style.setProperty('--read-paragraph', '#000000')
+
+        darkModeStatus = false
+    }
+})
