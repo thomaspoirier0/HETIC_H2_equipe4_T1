@@ -3,6 +3,7 @@
     --top-background-color: #201a38;
     --buttons-color: #7FB8F5;
     --buttons-text-color: #ffffff;
+    --read-paragraph: #000000;
 }
 
 html
@@ -17,7 +18,7 @@ body
 .background-block-top
 {
     background-color: var(--top-background-color);
-    position:absolute;
+    position: absolute;
     top: 0;
     width: 100%;
     height: 50vh;
@@ -101,6 +102,7 @@ body
         background: var(--top-background-color);
         transition: background-color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
         font-family: 'Poppins', sans-serif;
+
         @media screen and (max-height: 650px) {
             transition: height 0.2s cubic-bezier(0.13, 0.34, 0.16, 0.93);
         }
@@ -184,6 +186,7 @@ body
             
             p 
             {
+                color: var(--read_paragraph);
                 font-size: 16px;
                 font-weight: lighter;
                 line-height: 19px;
@@ -233,6 +236,7 @@ body
             width: 80%;
             text-align: right;
             font-size: 1.5rem;
+            color: var(--read-paragraph);
 
         }
         .transition-opacity-label
