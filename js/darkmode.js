@@ -10,6 +10,7 @@ class darkMode
     }
     colorFade()
     {
+
         for(let i = 0; i < this.element.length; i++)
         {
             this.element[i].style.background = this.toColor

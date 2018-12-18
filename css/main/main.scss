@@ -2,8 +2,9 @@
 :root{
     --top-background-color: #201a38;
     --buttons-color: #7FB8F5;
-    --buttons-text-color: #ffffff;
+    --buttons-text-color: #FFFFFF;
     --read-paragraph: #000000;
+    --popup-display-color: #FFFFFF;
 }
 
 html
@@ -18,6 +19,7 @@ body
 .background-block-top
 {
     background-color: var(--top-background-color);
+    transition: background-color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
     position: absolute;
     top: 0;
     width: 100%;
@@ -173,6 +175,8 @@ body
         {
             position: relative;
             background: white;
+            color: var(--read-paragraph);
+            transition: background-color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93), color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
             box-shadow: 0 5px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.05);
             width: 100%;
             height: 80%;
@@ -188,7 +192,7 @@ body
             
             p 
             {
-                color: var(--read_paragraph);
+                color: var(--read-paragraph);
                 font-size: 16px;
                 font-weight: lighter;
                 line-height: 19px;
@@ -301,6 +305,8 @@ body
     }
     .popup-finish
     {
+        
+        transition: color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
         display: none;
     }
     .popup--display
@@ -310,7 +316,7 @@ body
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        background-color: white;
+        background-color: var(--popup-display-color);
         border-radius: 5px;
         padding: 10px;
         width: 70vw;
