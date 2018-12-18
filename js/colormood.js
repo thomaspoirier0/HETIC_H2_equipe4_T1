@@ -24,10 +24,7 @@ class colorMood
 
             case 'joy':
                 this.changeWaveesColor([])
-
-            // case '':
-
-            //     break;
+                break;
         }
     }
 
