@@ -11,9 +11,9 @@ const timeLeft = (time) =>
     $labelAuthor.classList.add('transition-opacity-label')
     $labelAuthor.style.transition = `opacity ${time/10}s ease ${setTime}s`
 
-    const toBottomWindow = (window.innerHeight/2)
+    const toBottomWindow = (window.innerHeight/2)-200
 
-    $canvas.style.transformOrigin = `translateY(${toBottomWindow}px)`
+    $canvas.style.transformOrigin = `bottom`
     $canvas.style.transform = `translateY(${toBottomWindow}px)`
     $canvas.style.transition = `transform ${time}s linear 0s`
 
