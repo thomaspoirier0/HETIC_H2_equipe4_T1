@@ -2,7 +2,7 @@ const getPost = async function(data)
 {
     try 
     {
-        loaderPost()
+        addLoaderPost()
         let response = await fetch ('../api/index.php?action=read')
         if(response.ok)
         {

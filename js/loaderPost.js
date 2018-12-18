@@ -1,8 +1,12 @@
 const $loader = document.querySelector('.loader')
 
-loaderPost = () =>
+addLoaderPost = () =>
 {
-    $loader.classList.toggle('loader--display')
+    $loader.classList.add('loader--display')
+}
+removeLoaderPost = () =>
+{
+    $loader.classList.remove('loader--display')
 }
 
 

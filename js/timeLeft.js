@@ -8,6 +8,7 @@ const timeLeft = (time) =>
     $labelAuthor.style.transition = `opacity ${time/10}s ease ${setTime}s`
 
     window.setTimeout( function() {
+        togglePopUp()
         $storyAreaRead.remove()
         $labelAuthor.remove()
 
