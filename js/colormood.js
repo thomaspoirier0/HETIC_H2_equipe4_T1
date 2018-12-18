@@ -11,11 +11,11 @@ class colorMood
         switch(this.mood)
         {
             case 'sadness':
-                changeWaveesColor(['#D5B8FF', '#BF55EC', '#F1E7FE', '#23002D','#FFFFFF'])
+                this.changeWaveesColor(['#D5B8FF', '#BF55EC', '#F1E7FE', '#23002D','#FFFFFF'])
                 break;
 
             case 'angry':
-                changeWaveesColor(['#D5B8FF', '#BF55EC', '#F1E7FE', '#23002D','#FFFFFF'])
+                this.changeWaveesColor(['#D5B8FF', '#BF55EC', '#F1E7FE', '#23002D','#FFFFFF'])
                 break;
             
             // case '':

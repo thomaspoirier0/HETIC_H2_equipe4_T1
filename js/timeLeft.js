@@ -14,5 +14,4 @@ const timeLeft = (time) =>
 
     }, time*1000)
 
-
 }
