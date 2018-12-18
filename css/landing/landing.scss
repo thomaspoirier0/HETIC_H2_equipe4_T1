@@ -73,6 +73,10 @@ body{
         img{
             width: 30px;
             cursor: pointer;
+            transition: opacity 0.2s cubic-bezier(0.13, 0.34, 0.16, 0.93);
+            &:hover{
+                opacity: 0.6;
+            }
             &:first-of-type{
                 margin: 0 20px;
             }

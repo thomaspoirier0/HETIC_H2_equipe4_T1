@@ -94,6 +94,8 @@ $buttonReturn.addEventListener('click', (_event) =>
 {
     _event.preventDefault()
     togglePopUp()
+    $storyArea.removeAttribute('disabled', 'none')    
+
 
 })
 
