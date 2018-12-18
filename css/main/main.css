@@ -137,7 +137,10 @@ body {
   height: 80%;
   border-radius: 5px;
   padding: 20px 20px 40px 20px;
+}
+.container form .story-area p {
   white-space: pre-line;
+  height: 100%;
   overflow: auto;
 }
 .container form .story-area :focus {

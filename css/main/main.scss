@@ -169,14 +169,23 @@ body
             height: 80%;
             border-radius: 5px;
             padding: 20px 20px 40px 20px;
-            white-space: pre-line;
-            overflow: auto;
+
+            p 
+            {
+                white-space: pre-line;
+                height: 100%;
+                overflow: auto;
+
+            }
+
+            
 
             :focus 
             {
                 border-color: blue;
             }
         }
+
         .label-author
         {
             font-family: 'Dancing Script', cursive;
@@ -186,6 +195,7 @@ body
             text-align: right;
 
         }
+
 
 
         .button-return
@@ -202,6 +212,7 @@ body
             }
 
         }
+        
         .button-next--none
         {
             opacity: 0;

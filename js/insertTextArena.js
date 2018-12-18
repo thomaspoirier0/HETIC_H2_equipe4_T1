@@ -1,4 +1,4 @@
-const $storyAreaRead = document.querySelector('.area-read')
+const $storyAreaRead = document.querySelector('.area-read p')
 const $labelAuthor = document.querySelector('.label-author')
 
 const insertTextArena = (message) =>
@@ -12,6 +12,7 @@ const insertTextArena = (message) =>
             $storyAreaRead.innerHTML = response.message
             $labelAuthor.innerHTML = response.author 
 
+            timeLeft(response.time)
         }
 
 
