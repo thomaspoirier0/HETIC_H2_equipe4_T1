@@ -17,7 +17,7 @@ body {
   background-color: var(--top-background-color);
   transition: background-color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
   position: absolute;
-  top: 0;
+  top: 0%;
   width: 100%;
   height: 50vh;
   z-index: -1; }
@@ -28,6 +28,7 @@ body {
 .canvas-wave {
   width: 100%;
   position: absolute;
+  top: 0%;
   z-index: -1;
   border-top: 50vh solid var(--top-background-color);
   transition: border-color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93); }
@@ -220,7 +221,7 @@ body {
     background-color: var(--popup-display-color);
     border-radius: 5px;
     padding: 10px;
-    width: 70vw;
+    width: 40vw;
     height: 50vh;
     top: 50%;
     transform: translateY(-50%);
