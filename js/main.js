@@ -127,9 +127,10 @@ darkModeButton.addEventListener('click', () =>
     {
         const headerDarkMode = new darkMode([$blockTop, $menuContainer], newColorTop)
         const menuDarkMode = new darkMode([$body], newColorBottom)
-        const readZoneMode = new darkMode([$readZone], '#1a2e40')
+        const readZoneMode = new darkMode([$readZone, $popUp, $popUpfinish], '#1a2e40')
         root.style.setProperty('--buttons-color', '#FFFFFF')
         root.style.setProperty('--buttons-text-color', '#000000')
+        root.style.setProperty('--popup-display-color', '#1a2e40')
         root.style.setProperty('--concept-text', '#FFFFFF')
         root.style.setProperty('--read-paragraph', '#FFFFFF')
         darkModeButton.src = '../images/svg/dark-mode-on.svg'
@@ -140,10 +141,10 @@ darkModeButton.addEventListener('click', () =>
     {
         const headerDarkMode = new darkMode([$blockTop, $menuContainer], oldColor)
         const menuDarkMode = new darkMode([$body], '#FFFFFF')
-        const readZoneMode = new darkMode([$readZone], '#FFFFFF')
-        const readParagraphMode = new darkMode([$readParagraph], '#FFFFFF')
+        const readZoneMode = new darkMode([$readZone, $popUp, $popUpfinish], '#FFFFFF')
         root.style.setProperty('--buttons-color', '#7fb8f5')
         root.style.setProperty('--buttons-text-color', '#FFFFFF')
+        root.style.setProperty('--popup-display-color', '#FFFFFF')
         root.style.setProperty('--concept-text', '#000000')
         root.style.setProperty('--read-paragraph', '#000000')
         darkModeButton.src = '../images/svg/dark-mode-off.svg'

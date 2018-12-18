@@ -106,6 +106,7 @@ darkModeButton.addEventListener('click', () =>
         root.style.setProperty('--buttons-color', '#FFFFFF')
         root.style.setProperty('--buttons-text-color', '#000000')
         root.style.setProperty('--concept-text', '#FFFFFF')
+        darkModeButton.src = './images/svg/dark-mode-on.svg'
 
         for(let i = 0; i < $svgIcons.length; i++)
         {
@@ -121,6 +122,7 @@ darkModeButton.addEventListener('click', () =>
         root.style.setProperty('--buttons-color', '#7fb8f5')
         root.style.setProperty('--buttons-text-color', '#FFFFFF')
         root.style.setProperty('--concept-text', '#000000')
+        darkModeButton.src = './images/svg/dark-mode-off.svg'
 
         for(let i = 0; i < $svgIcons.length; i++)
         {
