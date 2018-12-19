@@ -6,8 +6,10 @@ class colorMood
 {
     constructor(mood)
     {
+        this.audioButton = document.querySelector('.sound-toggle')
         this.mood = mood
         this.audioMood = new Audio()
+        this.audioMood.volume = 0.5
         this.chooseColorPalette()
     }
     // choose wawe color and sound
