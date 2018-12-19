@@ -148,7 +148,7 @@ body
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        width: 50%;
+        width: 70%;
         height: 100vh;
         margin: auto;
         user-select: none;
@@ -202,11 +202,11 @@ body
                 font-weight: lighter;
                 line-height: 19px;
                 white-space: pre-line;
-                height: 100%;
+                height: auto;
+                width: 100%;
                 overflow: auto;
                 opacity: 1;
                 word-wrap: break-word;
-                width: 100%;
             }
             .transition-opacity
             {
