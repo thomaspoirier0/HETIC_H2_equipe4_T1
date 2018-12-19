@@ -103,6 +103,7 @@ const landingDarkmodeParameters = () =>
         root.style.setProperty('--buttons-color', '#FFFFFF')
         root.style.setProperty('--buttons-text-color', '#000000')
         root.style.setProperty('--concept-text', '#FFFFFF')
+        root.style.setProperty('--top-background-color', oldColor)
         darkModeButton.src = './images/svg/dark-mode-on.svg'
 
         for(let i = 0; i < $svgIcons.length; i++)
@@ -118,6 +119,7 @@ const landingDarkmodeParameters = () =>
         root.style.setProperty('--buttons-color', '#7fb8f5')
         root.style.setProperty('--buttons-text-color', '#FFFFFF')
         root.style.setProperty('--concept-text', '#000000')
+        root.style.setProperty('--top-background-color', newColorTop)
         darkModeButton.src = './images/svg/dark-mode-off.svg'
 
         for(let i = 0; i < $svgIcons.length; i++)
