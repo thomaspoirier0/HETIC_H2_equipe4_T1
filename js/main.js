@@ -122,7 +122,8 @@ const newColorBottom = '#132431'
 const oldColor = window.getComputedStyle($menuContainer).getPropertyValue('background-color')
 
 let darkModeStatus = false
-darkModeButton.addEventListener('click', () =>
+
+const mainDarkmodeParameters = () =>
 {
     if(!darkModeStatus)
     {
@@ -154,4 +155,8 @@ darkModeButton.addEventListener('click', () =>
 
         darkModeStatus = false
     }
+}
+darkModeButton.addEventListener('click', () =>
+{
+    mainDarkmodeParameters()
 })

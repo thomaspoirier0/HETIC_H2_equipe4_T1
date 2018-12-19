@@ -95,9 +95,11 @@ const newColorBottom = '#132431'
 const oldColor = window.getComputedStyle($menuContainer).getPropertyValue('background-color')
 
 let darkModeStatus = false
-darkModeButton.addEventListener('click', () =>
+let localDarkMode = localStorage.getItem('localDarkMode')
+
+const landingDarkmodeParameters = () =>
 {
-    if(!darkModeStatus)
+    if(!darkModeStatus || localDarkMode)
     {
         const headerDarkMode = new darkMode([$menuContainer], newColorTop)
         const menuDarkMode = new darkMode([$menu, $body], newColorBottom)
@@ -112,8 +114,9 @@ darkModeButton.addEventListener('click', () =>
         }
 
         darkModeStatus = true
+        localStorage.setItem('localDarkMode', false)
     }
-    else
+    else if(darkModeStatus || !localDarkMode)
     {
         const headerDarkMode = new darkMode([$menuContainer], oldColor)
         const menuDarkMode = new darkMode([$menu, $body], '#FFFFFF')
@@ -128,9 +131,14 @@ darkModeButton.addEventListener('click', () =>
         }
 
         darkModeStatus = false
+        localStorage.setItem('localDarkMode', true)
     }
+}
+landingDarkmodeParameters()
+darkModeButton.addEventListener('click', () =>
+{
+    landingDarkmodeParameters()
 })
-
 
 // Scroll to Concept bloc
 

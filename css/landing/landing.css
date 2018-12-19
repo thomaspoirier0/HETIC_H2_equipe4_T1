@@ -124,12 +124,19 @@ body {
       align-items: center;
       margin-top: auto;
       margin-bottom: 20px;
-      user-select: none;
-      cursor: pointer; }
+      user-select: none; }
+      .menu-container .menu .info-scroller .school-project {
+        width: 80%;
+        text-align: center;
+        margin: 20px 0 50px 0;
+        font-size: 1.2rem;
+        font-weight: 200;
+        color: var(--concept-text); }
       .menu-container .menu .info-scroller .info-text {
         font-size: 1.2rem;
         font-weight: 200;
-        color: var(--buttons-color); }
+        color: var(--buttons-color);
+        cursor: pointer; }
       .menu-container .menu .info-scroller .downside-arrow {
         width: 1.2rem;
         height: 1.2rem;
@@ -137,7 +144,8 @@ body {
         border-bottom: 1px solid var(--buttons-color);
         transform: rotate(45deg);
         transition: transform 0.2s ease-in-out;
-        will-change: transform; }
+        will-change: transform;
+        cursor: pointer; }
       .menu-container .menu .info-scroller:hover .downside-arrow {
         transform: translateY(5px) rotate(45deg); }
 
