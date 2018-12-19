@@ -222,14 +222,13 @@ body{
     text-align: center;
     background-color: var(--top-background-color);
     width: 100vw;
-    height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
-
     .school-project{
         width: 80%;
         color: var(--concept-text);
+        margin: 20px 0;
         font-family: 'Poppins', sans-serif;
         font-weight: 200;
         font-size: 0.7rem;
