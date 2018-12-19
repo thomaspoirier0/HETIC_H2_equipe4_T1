@@ -1,5 +1,6 @@
-// Dark Mode 
-
+/*
+** darkmode
+*/
 class darkMode
 {
     constructor(element, toColor)
