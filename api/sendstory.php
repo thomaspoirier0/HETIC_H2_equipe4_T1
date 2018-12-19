@@ -62,7 +62,7 @@ class StorySender {
     public function getMessage()
     {
         // get the text and the author of the selected message
-        $req = $this->_db->prepare('SELECT author, messages FROM messages_storea WHERE id=:randomId');
+        $req = $this->_db->prepare('SELECT author, messages, moods FROM messages_storea WHERE id=:randomId');
 
         $req->execute(array(
             'randomId' => $this->_randomIndex
@@ -90,82 +90,13 @@ class StorySender {
     public function computeReadTime($story)
     {
         // 10 chars per second-read time base
-        $readTime = 15;
+        $readTime = 0;
 
-        $textFactor = strlen($story) * 0.1;
+        $textFactor = strlen($story) * 0.06;
 
         return $readTime + $textFactor;
     }
 }
-
-
-// $ip = Validator::getIp();
-// $randomIndex = 0;
-// $isValidIndex = false;
-
-// $data = $db->query('SELECT messages FROM messages_storea');
-
-// $i = 0;
-// while($message = $data->fetch()) {
-//     $i++;
-// }
-
-    // $tableSize = $db->query('SELECT 
-    //     table_name AS `Table`, 
-    //     round(((data_length + index_length) / 1024 / 1024), 2) `Size in MB` 
-    // FROM information_schema.TABLES 
-    // WHERE table_schema = "545f2_dev_storea"
-    //     AND table_name = "messages_storea";');
-
-    // echo $tableSize->fetch();
-
-// function chooseId($i, $db) {
-//     $randomIndex = rand(1, $i - 1);
-//     testId($db);
-// }
-
-// function testId($db) {
-//     // fetches the list of IP who already saw the selected message
-//     $req = $db->prepare('SELECT ip, id_message FROM ip_per_message WHERE id_message=:randomId');
-    
-//     $req->execute(array(
-//         'randomId' => $randomIndex
-//     ));
-//     while ($message = $req->fetch()) {
-//         if ($message['ip'] == $ip) {
-//             return false;
-//         }
-//     }
-//     $isValidIndex = true;
-// }
-
-// while (!$isValidIndex) {
-//     chooseId($i, $db);
-// }
-    
-// // get the text and the author of the selected message
-// $req = $db->prepare('SELECT author, messages FROM messages_storea WHERE id=:randomId');
-
-// $req->execute(array(
-//     'randomId' => $randomIndex
-// ));
-
-// // if not already read, add it to my read list
-// try {
-//     $pushIp = $db->prepare('INSERT INTO ips_per_message(id_message, messages, ip) VALUES (:id, :ip)');
-
-//     $pushIp->execute(array(
-//         'id' => $randomIndex,
-//         'ip' => $ip
-//     ));
-
-// } catch (Exception $e) {
-//     die('Error :'.$e->getMessage());
-// }
-
-// // gets the message from the result of the query
-// $resArray = $req->fetch();
-
 
 
 $storySender = new StorySender($db);
@@ -177,30 +108,21 @@ while (!$storySender->getIndexValidity()) {
 $resArray = $storySender->getMessage();
 
 $readTime = $storySender->computeReadTime($resArray['messages']);
-$_SESSION['readtime'] = $readTime;
 
 // change for prod
 // $storySender->addToRead();
 
-$mood = json_decode(Validator::getMood($resArray['messages']), true);
+// experimental
 $moderatedMessage = json_decode(Validator::moderate($resArray['messages']), true);
+$moderatedPseudo = json_decode(Validator::moderate($resArray['author']), true);
 
-$moodArray = $mood['document_tone']['tones'];
-
-// selects the most rated mood when there's several mood
-$maxConfidence = 0;
-$moodMax;
-if (empty($moodArray)) {
-    $moodArray = json_decode('[{"tone_id" : "neutral"}]', true);
-}
-
-// $translationTest = json_decode(Validator::translate($moderatedMessage['rsp']['text']), true);
-// var_dump($translationTest);
+$moodArray = json_decode($resArray['moods'], true);
 
 $response = [
-    'author' => $resArray['author'], 
+    'author' => $moderatedPseudo['rsp']['text'], 
     'message' => $moderatedMessage['rsp']['text'],
-    'mood' => $moodArray
+    'mood' => $moodArray,
+    'readtime' => $readTime
 ];
 
 
