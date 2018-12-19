@@ -156,7 +156,30 @@ const mainDarkmodeParameters = () =>
         darkModeStatus = false
     }
 }
+
+// Local storage Dark Mode
 darkModeButton.addEventListener('click', () =>
 {
+    if(!darkModeStatus)
+    {
+        localStorage.setItem('localDarkModeStatus', true)
+    }
+    else
+    {
+        localStorage.setItem('localDarkModeStatus', false)
+    }
     mainDarkmodeParameters()
+})
+
+const localDarkModeStatus = localStorage.getItem('localDarkModeStatus')
+const localDarkModeSetup = () =>
+{
+    if(localDarkModeStatus == 'true')
+    {
+        mainDarkmodeParameters()
+    }
+}
+window.addEventListener('load', () =>
+{
+    localDarkModeSetup()
 })

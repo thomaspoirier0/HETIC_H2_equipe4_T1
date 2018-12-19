@@ -5,7 +5,6 @@ window
     .then(_responseMotto => _responseMotto.json())
     .then(_dataMotto =>
     {
-        console.log(_dataMotto)
         const textArray = _dataMotto
         const writeTest = new typeWritterMotto($spanMotto, textArray)
     })
@@ -81,7 +80,6 @@ class typeWritterMotto
 
 
 // Dark Mode 
-
 const darkModeButton = document.querySelector('.dark-mode-toggle')
 
 const root = document.documentElement
@@ -98,7 +96,7 @@ let darkModeStatus = false
 
 const landingDarkmodeParameters = () =>
 {
-    if(!darkModeStatus || localDarkMode)
+    if(!darkModeStatus)
     {
         const headerDarkMode = new darkMode([$menuContainer], newColorTop)
         const menuDarkMode = new darkMode([$menu, $body], newColorBottom)
@@ -111,10 +109,9 @@ const landingDarkmodeParameters = () =>
         {
             $svgIcons[i].style.filter = 'brightness(0) invert(1)'
         }
-
         darkModeStatus = true
     }
-    else if(darkModeStatus || !localDarkMode)
+    else
     {
         const headerDarkMode = new darkMode([$menuContainer], oldColor)
         const menuDarkMode = new darkMode([$menu, $body], '#FFFFFF')
@@ -127,13 +124,35 @@ const landingDarkmodeParameters = () =>
         {
             $svgIcons[i].style.filter = ''
         }
-
         darkModeStatus = false
     }
 }
+
+// Local storage Dark Mode
 darkModeButton.addEventListener('click', () =>
 {
+    if(!darkModeStatus)
+    {
+        localStorage.setItem('localDarkModeStatus', true)
+    }
+    else
+    {
+        localStorage.setItem('localDarkModeStatus', false)
+    }
     landingDarkmodeParameters()
+})
+
+const localDarkModeStatus = localStorage.getItem('localDarkModeStatus')
+const localDarkModeSetup = () =>
+{
+    if(localDarkModeStatus == 'true')
+    {
+        landingDarkmodeParameters()
+    }
+}
+window.addEventListener('load', () =>
+{
+    localDarkModeSetup()
 })
 
 // Scroll to Concept bloc
