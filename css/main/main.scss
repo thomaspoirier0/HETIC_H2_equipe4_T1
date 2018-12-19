@@ -17,6 +17,7 @@ body
 {
   background: #ffffff;
   transition: background-color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
+  overflow: hidden;
 }
 .background-block-top
 {
@@ -202,7 +203,7 @@ body
                 font-weight: lighter;
                 line-height: 19px;
                 white-space: pre-line;
-                height: auto;
+                height: 100%;
                 width: 100%;
                 overflow: auto;
                 opacity: 1;
@@ -259,7 +260,9 @@ body
 
         .button-return
         {
+            margin-top: 10px;
             border: 1px solid var(--buttons-color);
+
             .arrow-return
             {
                 border: 2px solid var(--buttons-color);
@@ -281,6 +284,7 @@ body
             justify-content: space-around;
             align-items: center;
             cursor: pointer;
+
             .button-pop
             {
                 font-size: 2rem;
