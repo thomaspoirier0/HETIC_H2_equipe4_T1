@@ -35,7 +35,7 @@ body {
   border-top: 50vh solid var(--top-background-color) !important; }
 
 /*
-* arrow
+* arrow & cross
 */
 .arrow {
   width: 0.8rem;
@@ -45,7 +45,24 @@ body {
   transform: rotate(315deg);
   transition: transform 0.2s ease-in-out; }
 
+.cross {
+  position: relative;
+  width: 70%;
+  height: 1px;
+  background: var(--buttons-color);
+  transform: rotate(45deg); }
+  .cross::after {
+    content: '';
+    position: absolute;
+    right: 0%;
+    width: 100%;
+    height: 1px;
+    background: var(--buttons-color);
+    transform-origin: center;
+    transform: rotate(90deg); }
+
 .return-pop {
+  align-self: flex-start;
   position: absolute;
   top: 0%; }
 
