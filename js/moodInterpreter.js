@@ -1,18 +1,3 @@
-// example of using the interpreter
-fetch('./testvide.json')
-.then(res => res.json())
-.then((data) => {
-    
-    // console.log(data)
-
-    const moodInterpreter = new MoodInterpreter(data.mood)
-
-    const test = moodParser.getDominantMood()
-
-    console.log(test)
-});
-
-
 class MoodInterpreter {
 
     // expects the 'mood' array to be passed to check the dominant mood of the text

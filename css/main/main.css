@@ -171,10 +171,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 200;
 }
 .container form .story-area p {
   color: var(--read-paragraph);
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: lighter;
   line-height: 19px;
   white-space: pre-line;

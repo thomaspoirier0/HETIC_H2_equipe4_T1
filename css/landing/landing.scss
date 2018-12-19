@@ -143,7 +143,6 @@ body{
             }
         }
         .info-scroller{
-            //position: absolute;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
@@ -173,6 +172,7 @@ body{
     }
 }
 
+// Concept container CSS
 .concept-container{
     width: 100%;
     padding: 10px 10% 50px 10%;
