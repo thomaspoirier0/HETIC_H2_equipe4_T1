@@ -48,12 +48,12 @@ class colorMood
             {
                 this.audioPlaying = false
                 this.audioMood.pause()
-                this.audioButton.src = '../images/svg/sound.svg'
+                this.audioButton.src = '../images/icone-sound/sound-on.svg'
             }
             else{
                 this.audioPlaying = true
                 this.audioMood.play()
-                this.audioButton.src = '../images/svg/no-sound.svg'
+                this.audioButton.src = '../images/icone-sound/sound-off.svg'
             }
         })
     }
