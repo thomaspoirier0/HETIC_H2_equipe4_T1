@@ -1,3 +1,7 @@
+/*
+** change wawe color and sound
+*/
+
 class colorMood
 {
     constructor(mood)
@@ -6,7 +10,7 @@ class colorMood
         this.audioMood = new Audio()
         this.chooseColorPalette()
     }
-
+    // choose wawe color and sound
     chooseColorPalette()
     {
         this.audioMood.loop = true
@@ -37,7 +41,7 @@ class colorMood
                 break;
         }
     }
-
+    // apply wawe color
     changeWaveesColor(colorArray)
     {
         for (let i = 0; i < colorArray.length; i++)
