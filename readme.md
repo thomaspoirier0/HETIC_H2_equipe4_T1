@@ -26,9 +26,8 @@
 - Or see at : https://francoisxaviermanceau.fr/tell-us/
 
 ## Compatibility
-- Tested & working on :
-    -> Chrome (Desktop and Mobile devices)
-    -> Firefox
-    -> Safari (Desktop and Mobile devices)
-    -> Edge 
-    -> Opera
+- [x] Chrome (Desktop and Mobile devices)
+- [x] Firefox (Desktop and Mobile devices)
+- [x] Safari (Desktop and Mobile devices)
+- [x] Edge (Desktop)
+- [x] Opera (Desktop)
