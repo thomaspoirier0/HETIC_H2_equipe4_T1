@@ -1,3 +1,7 @@
+/*
+** for get story from mysql
+*/
+
 const getPost = async function(data) 
 {
     try 
@@ -9,7 +13,6 @@ const getPost = async function(data)
             let responseData = await response.json()
             return responseData
         
-
         }
         else 
         {
@@ -18,9 +21,12 @@ const getPost = async function(data)
     } 
     catch (e) 
     {
-        console.log(e)
+        console.error(e)
     }    
 } 
+/*
+** for send story and name to mysql
+*/
 
 const sendPost = async function (data) 
 {
@@ -38,17 +44,15 @@ const sendPost = async function (data)
         {   
             popUpInsert(response.status)
             let responseData = await response.json()
-            console.log(data)
         } 
         else 
         {
             popUpInsert(response.status)
             console.error('Retour du serveur  : ', response.status)
         }
-
     } 
     catch (e) 
     {
-        console.log(e)
+        console.error(e)
     }
 }
