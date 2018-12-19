@@ -37,6 +37,13 @@ class MoodInterpreter {
                     this.dominantMood = mood.tone_id
                 }
             });
+            if (this.dominantMood === "confident") {
+                return "joy"
+            }
+ 
+            if (this.dominantMood === null) {
+                return "neutral"
+            }
             
             return this.dominantMood
         } else {
