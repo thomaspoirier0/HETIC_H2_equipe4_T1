@@ -2,6 +2,7 @@
   --top-background-color: #201a38;
   --buttons-color: #7FB8F5;
   --buttons-text-color: #FFFFFF;
+  --concept-text: #000000;
   --read-paragraph: #000000;
   --popup-display-color: #FFFFFF; }
 
@@ -30,8 +31,7 @@ body {
   position: absolute;
   top: 0%;
   z-index: -1;
-  border-top: 50vh solid var(--top-background-color);
-  transition: border-color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93); }
+  border-top: 50vh solid var(--top-background-color) !important; }
 
 /*
 * arrow
@@ -208,9 +208,10 @@ body {
     display: none; }
     .container .popup label {
       font-size: 2rem;
-      font-weight: 400; }
+      font-weight: 400;
+      color: var(--concept-text); }
   .container .popup-finish {
-    transition: color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
+    transition: background-color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
     display: none; }
   .container .popup--display {
     position: fixed;
@@ -219,6 +220,7 @@ body {
     justify-content: space-around;
     align-items: center;
     background-color: var(--popup-display-color);
+    transition: background-color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
     border-radius: 5px;
     padding: 10px;
     width: 40vw;
@@ -231,6 +233,8 @@ body {
       min-width: 20%;
       max-width: 50px;
       height: auto; }
+    .container .popup--display p {
+      color: var(--buttons-color); }
     .container .popup--display .social-icon {
       display: flex;
       justify-content: space-around;

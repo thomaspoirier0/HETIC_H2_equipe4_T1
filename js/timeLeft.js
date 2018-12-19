@@ -15,7 +15,7 @@ const timeLeft = (time) =>
 
     $canvas.style.transformOrigin = `bottom`
     $canvas.style.transform = `translateY(${toBottomWindow}px)`
-    $canvas.style.transition = `transform ${time}s linear 0s`
+    $canvas.style.transition = `transform ${time}s linear 0s, background-color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93)`
 
 
     window.setTimeout( function() {
