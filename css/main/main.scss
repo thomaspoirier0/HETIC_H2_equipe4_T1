@@ -59,6 +59,11 @@ body
 
 }
 
+.return-pop
+{
+    position: absolute;
+    top: 0%;
+}
 .round-return
 {
     display: flex;
@@ -70,6 +75,7 @@ body
     height: 30px;
     transition: opacity 0.2s cubic-bezier(0.13, 0.34, 0.16, 0.93);
     cursor: pointer;
+
     &:hover
     {
         opacity: 0.6;
@@ -284,8 +290,8 @@ body
             justify-content: space-around;
             align-items: center;
             cursor: pointer;
-            position: absolute;
-            bottom: 2%;
+            position: relative;
+            bottom: 0%;
 
             .button-pop
             {

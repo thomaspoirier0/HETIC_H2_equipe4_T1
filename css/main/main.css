@@ -51,6 +51,11 @@ body {
   transition: transform 0.2s ease-in-out;
 }
 
+.return-pop {
+  position: absolute;
+  top: 0%;
+}
+
 .round-return {
   display: flex;
   justify-content: center;
@@ -236,8 +241,8 @@ body {
   justify-content: space-around;
   align-items: center;
   cursor: pointer;
-  position: absolute;
-  bottom: 2%;
+  position: relative;
+  bottom: 0%;
 }
 .container form .button-next .button-pop {
   font-size: 2rem;
