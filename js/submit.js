@@ -1,3 +1,6 @@
+/*
+** submit name and story to sendPost()
+*/
 const $ButtonSubmit = document.querySelector('.button-submit')
 
 $ButtonSubmit.addEventListener('click', _event => 

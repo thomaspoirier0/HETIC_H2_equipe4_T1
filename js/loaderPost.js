@@ -1,3 +1,7 @@
+/*
+** manage loader
+*/
+
 const $loader = document.querySelector('.loader')
 
 addLoaderPost = () =>

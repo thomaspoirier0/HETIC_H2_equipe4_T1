@@ -1,5 +1,3 @@
-// Typewriter Motto
-
 const $logoContainer = $menuContainer.querySelector('.logo-motto-container')
 const $spanMotto = $logoContainer.querySelector('span')
 window
