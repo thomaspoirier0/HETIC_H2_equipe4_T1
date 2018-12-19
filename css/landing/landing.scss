@@ -221,18 +221,20 @@ body{
 {
     text-align: center;
     background-color: var(--top-background-color);
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color 1s cubic-bezier(0.13, 0.34, 0.16, 0.93);
+    
     .school-project{
         width: 80%;
-        color: var(--concept-text);
+        color: white;
         margin: 20px 0;
         font-family: 'Poppins', sans-serif;
         font-weight: 200;
         font-size: 0.7rem;
-
+        line-height: 1.2rem;
     }
 }
 
