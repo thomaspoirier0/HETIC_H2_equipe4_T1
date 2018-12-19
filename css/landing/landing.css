@@ -153,14 +153,6 @@ body {
   margin-bottom: 20px;
   user-select: none;
 }
-.menu-container .menu .info-scroller .school-project {
-  width: 80%;
-  text-align: center;
-  margin: 20px 0 50px 0;
-  font-size: 1rem;
-  font-weight: 200;
-  color: var(--concept-text);
-}
 .menu-container .menu .info-scroller .info-text {
   font-size: 1.2rem;
   font-weight: 200;
@@ -204,6 +196,7 @@ body {
   align-items: center;
   margin: 50px 10%;
   text-align: center;
+  line-height: 1.5rem;
 }
 @media screen and (max-width: 900px) {
   .concept-container .concept-card {
@@ -226,6 +219,23 @@ body {
 .concept-container .concept-card span {
   color: var(--concept-text);
   font-weight: 200;
+}
+
+.footer {
+  text-align: center;
+  background-color: var(--top-background-color);
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer .school-project {
+  width: 80%;
+  color: var(--buttons-text-color);
+  font-family: Poppins,sans-serif;
+  font-weight: 200;
+  font-size: 0.7rem;
 }
 
 @keyframes type-writter-cursor {
