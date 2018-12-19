@@ -1,5 +1,5 @@
 /*
-** change wawe color and sound
+** change wave color and sound
 */
 
 class colorMood
@@ -13,7 +13,7 @@ class colorMood
         this.audioPlaying = false
         this.chooseColorPalette()
     }
-    // choose wawe color and sound
+    // choose wave color and sound
     chooseColorPalette()
     {
         this.audioMood.loop = true
@@ -38,12 +38,12 @@ class colorMood
                 this.changeWaveesColor(['#FFFFCC', '#FFF68F', '#FFF9DE', '#FFFF7E', waves[waves.length-1].colour])
                 this.audioMood.src = '../audio/emotion-joy.mp3'
                 break;
+
+            default:
+                this.audioMood.src = '../audio/emotion-neutral.mp3'
         }
-        this.audioMood.play()
         this.audioButton.addEventListener('click', () =>
         {
-            console.log('click')
-            console.log(this.audioMood.played)
             if(this.audioPlaying)
             {
                 this.audioPlaying = false
@@ -57,7 +57,7 @@ class colorMood
             }
         })
     }
-    // apply wawe color
+    // apply wave color
     changeWaveesColor(colorArray)
     {
         for (let i = 0; i < colorArray.length; i++)
