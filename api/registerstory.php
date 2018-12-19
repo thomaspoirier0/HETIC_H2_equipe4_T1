@@ -2,6 +2,8 @@
 
 $data = json_decode( file_get_contents( 'php://input' ), true );
 
+// echo $data['user_story'];
+
 $author = Validator::check($data['user_name']);
 $story = Validator::check($data['user_story']);
 $ip = Validator::getIp();
@@ -9,11 +11,17 @@ $lastInsertId = 0;
 
 // experimental
 $mood = json_decode(Validator::getMood($story), true);
-$moodArray = json_encode($mood['document_tone']['tones']);
+$moodArray = !empty($mood['document_tone']['tones']) ? json_encode($mood['document_tone']['tones']) : '[{"tone_id" : "neutral"}]';
 
-if (empty($moodArray)) {
-    $moodArray = '[{"tone_id" : "neutral"}]';
-}
+echo $moodArray;
+
+// if ($moodArray === []) {
+//     $moodArray = '[{"tone_id" : "neutral"}]';
+// }
+
+// echo $moodArray;
+
+// echo $story;
 
 if ($author && $story) {
 

@@ -6,6 +6,7 @@ class StorySender {
     protected $_isValidIndex;
     protected $_db;
     protected $_i;
+    protected $_maxTry;
 
     public function __construct($db) {
         $this->setDb($db);
@@ -18,10 +19,19 @@ class StorySender {
         $this->_randomIndex = 0;
         $this->_isValidIndex = false;
         $this->_i = 0;
+        $this->_maxTry = 0;
     }
 
     public function setDb($db) {
         $this->_db = $db;
+    }
+
+    public function getTry() {
+        $this->_maxTry++;
+    }
+
+    public function incTry() {
+        $this->_maxTry++;
     }
 
     public function getIndexValidity() {
@@ -37,54 +47,72 @@ class StorySender {
     }
 
     public function chooseId() {
-        $this->_randomIndex = rand(1, $this->_i - 1);
+        $this->_randomIndex = rand(1, $this->_i);
         
         // change for prod
-        $this->_isValidIndex = true;
-        // $this->testId();
+        $this->testId();
     }
 
     function testId() {
-        // fetches the list of IP who already saw the selected message
-        $req = $this->_db->prepare('SELECT ip, id_message FROM ips_per_message WHERE id_message=:randomId');
-        
-        $req->execute(array(
-            'randomId' => $this->_randomIndex
-        ));
-        while ($message = $req->fetch()) {
-            if ($message['ip'] == $this->_ip) {
-                return false;
+
+        if ($this->_maxTry < 15) {
+            // fetches the list of IP who already saw the selected message
+            $req = $this->_db->prepare('SELECT ip, id_message FROM ips_per_message WHERE id_message=:randomId');
+            
+            $req->execute(array(
+                'randomId' => $this->_randomIndex
+            ));
+            while ($message = $req->fetch()) {
+                if ($message['ip'] == $this->_ip) {
+                    return false;
+                }
             }
+            $this->_isValidIndex = true;
+        } else {
+            $this->_isValidIndex = true;
         }
-        $this->_isValidIndex = true;
     }
 
     public function getMessage()
     {
-        // get the text and the author of the selected message
-        $req = $this->_db->prepare('SELECT author, messages, moods FROM messages_storea WHERE id=:randomId');
+        if ($this->_maxTry < 15) {
+            // get the text and the author of the selected message
+            $req = $this->_db->prepare('SELECT author, messages, moods FROM messages_storea WHERE id=:randomId');
+    
+            $req->execute(array(
+                'randomId' => $this->_randomIndex
+            ));
+    
+            return $req->fetch();
+        } else {
+            $default = array(
+                'author' => 'The team',
+                'messages' => 'Vous avez lu tous les messages que nous avions pour vous... Maintenant, c\' est à votre tour!',
+                'moods' => '[{"score" : 1, "tone_id" : "joy"}]'
+            );
+            return $default;
+        }
+        
 
-        $req->execute(array(
-            'randomId' => $this->_randomIndex
-        ));
-
-        return $req->fetch();
     }
 
     public function addToRead()
     {
-        // if not already read, add it to my read list
-        try {
-            $pushIp = $this->_db->prepare('INSERT INTO ips_per_message(id_message, ip) VALUES (:id, :ip)');
-
-            $pushIp->execute(array(
-                'id' => $this->_randomIndex,
-                'ip' => $this->_ip
-            ));
-
-        } catch (Exception $e) {
-            die('Error :'.$e->getMessage());
+        if ($this->_maxTry < 15) {
+            // if not already read, add it to my read list
+            try {
+                $pushIp = $this->_db->prepare('INSERT INTO ips_per_message(id_message, ip) VALUES (:id, :ip)');
+    
+                $pushIp->execute(array(
+                    'id' => $this->_randomIndex,
+                    'ip' => $this->_ip
+                ));
+    
+            } catch (Exception $e) {
+                die('Error :'.$e->getMessage());
+            }
         }
+        
     }
 
     public function computeReadTime($story)
@@ -98,19 +126,19 @@ class StorySender {
     }
 }
 
-
 $storySender = new StorySender($db);
 
 while (!$storySender->getIndexValidity()) {
     $storySender->chooseId();
+    $storySender->incTry();
 }
 
 $resArray = $storySender->getMessage();
 
 $readTime = $storySender->computeReadTime($resArray['messages']);
 
-// change for prod
-// $storySender->addToRead();
+// change for tests
+$storySender->addToRead();
 
 // experimental
 $moderatedMessage = json_decode(Validator::moderate($resArray['messages']), true);

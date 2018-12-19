@@ -21,7 +21,7 @@ class Validator {
     public static function moderate($input) {
         $input = 'text='.urlencode($input);
         $curl = curl_init();      
-        curl_setopt($curl, CURLOPT_URL, "http://api1.webpurify.com/services/rest/?method=webpurify.live.replace&api_key=331d24ff7b559264b72c0aeca03560ee&format=json&replacesymbol=*&lang=fr");
+        curl_setopt($curl, CURLOPT_URL, "http://api1.webpurify.com/services/rest/?method=webpurify.live.replace&api_key=331d24ff7b559264b72c0aeca03560ee&format=json&replacesymbol=bruno<3&lang=fr");
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $input);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -69,6 +69,20 @@ class Validator {
 
         // return unreliable ip since all else failed
         return $_SERVER['REMOTE_ADDR'];
+
+        // if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet
+        // {
+        //   $ip=$_SERVER['HTTP_CLIENT_IP'];
+        // }
+        // elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))   //to check ip is pass from proxy
+        // {
+        //   $ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+        // }
+        // else
+        // {
+        //   $ip=$_SERVER['REMOTE_ADDR'];
+        // }
+        // return $ip;
     }
 
     public static function validate_ip($ip) {
@@ -98,6 +112,9 @@ class Validator {
     }
     
     public static function getMood($curl_post_data) {
+        // if (self::isJson(!$curl_post_data)) {
+        //     return 'error : the string passed is not a valid JSON string';
+        // }
         $toBeTranslated = $curl_post_data;
 
         $curl_post_data = self::translate($toBeTranslated);
@@ -113,6 +130,14 @@ class Validator {
         curl_setopt($curl, CURLOPT_HTTPHEADER, array(
             "content-type: application/json"
         ));
+        // $result = curl_exec($curl);
+
+        // $opts = [
+        //     CURLOPT_URL => '',
+        //     CURLOPT_RETURNTRANSFER => true,
+        // ];
+
+        // curl_setopt_array($curl, $opts);
 
         $response = curl_exec($curl);
 
@@ -133,7 +158,10 @@ class Validator {
             curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
     
             $response = curl_exec($curl);
-                            
+    
+            
+            // $response = $response['text'][0];
+                        
             if ($response === false) {
                 throw new Exception(curl_error($curl), curl_errno($curl));
             }
@@ -146,11 +174,14 @@ class Validator {
             return $response;
 
         } catch(Exception $e) {
-            trigger_error(sprintf(
-                'Curl failed with error #%d: %s',
-                $e->getCode(), $e->getMessage()),
-                E_USER_ERROR);
+            // trigger_error(sprintf(
+            //     'Curl failed with error #%d: %s',
+            //     $e->getCode(), $e->getMessage()),
+            //     E_USER_ERROR);
             die('Error :'.$e->getCode().' '.$e->getMessage());
         }
     }
 }
+
+// "Content-Language: fr"
+// "Accept-Language: fr"
