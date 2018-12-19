@@ -2,20 +2,22 @@ const $storyAreaRead = document.querySelector('.area-read p')
 const $labelAuthor = document.querySelector('.label-author p')
 
 /*
-** insert story, name and color mood
-** manage loader
+** insert story and name and color mood
+** 
 */
 const insertTextArena = (message) =>
 {
-    getPost().then(response => 
-        {
+    getPost().then(response => {
+
         if(response.message)
         {
             removeLoaderPost()
+
             $storyAreaRead.innerHTML = response.message
             $labelAuthor.innerHTML = response.author
-            console.log(moodInterpreter.dominantMood)
+            const moodInterpreter = new MoodInterpreter(response.mood)
             const newColorMood = new colorMood(moodInterpreter.dominantMood)
+
             timeLeft(response.readtime)
         }
         else
