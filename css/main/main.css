@@ -209,7 +209,7 @@ body {
 .container form .label-author {
   font-family: 'Dancing Script', cursive;
   position: relative;
-  top: -65px;
+  bottom: 13%;
   width: 80%;
   text-align: right;
   font-size: 1.5rem;
@@ -236,6 +236,8 @@ body {
   justify-content: space-around;
   align-items: center;
   cursor: pointer;
+  position: absolute;
+  bottom: 2%;
 }
 .container form .button-next .button-pop {
   font-size: 2rem;
