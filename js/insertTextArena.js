@@ -16,6 +16,7 @@ const insertTextArena = (message) =>
             $storyAreaRead.innerHTML = response.message
             $labelAuthor.innerHTML = response.author
             const moodInterpreter = new MoodInterpreter(response.mood)
+            console.log(moodInterpreter.dominantMood)
             const newColorMood = new colorMood(moodInterpreter.dominantMood)
 
             timeLeft(response.readtime)

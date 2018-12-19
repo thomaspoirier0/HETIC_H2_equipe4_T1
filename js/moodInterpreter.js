@@ -1,8 +1,22 @@
+// example of using the interpreter
+fetch('./testvide.json')
+.then(res => res.json())
+.then((data) => {
+    
+    // console.log(data)
+
+    const moodInterpreter = new MoodInterpreter(data.mood)
+
+    const test = moodParser.getDominantMood()
+
+    console.log(test)
+});
+
+
 class MoodInterpreter {
 
     // expects the 'mood' array to be passed to check the dominant mood of the text
-    constructor(moods) 
-    {
+    constructor(moods) {
         this.moods = moods
         this.dominantScore = 0
         this.dominantMood = null
@@ -15,13 +29,6 @@ class MoodInterpreter {
         if (this.moods[0].score) {
             console.log('case 1')
             this.moods.forEach(mood => {
-                if (this.dominantMood === "confident") {
-                    return "joy"
-                }
-     
-                if (this.dominantMood === null) {
-                    return "neutral"
-                }
                 if (
                     mood.score > this.dominantScore && 
                     mood.tone_id !== 'analytical'
