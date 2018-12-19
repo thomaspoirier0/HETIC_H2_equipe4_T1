@@ -49,6 +49,9 @@ body {
   position: absolute;
   top: 0%; }
 
+.delete-visible {
+  visibility: hidden; }
+
 .round-return {
   display: flex;
   justify-content: center;
@@ -182,7 +185,7 @@ body {
     .container form .label-author {
       font-family: 'Dancing Script', cursive;
       position: relative;
-      bottom: 13%;
+      bottom: 10%;
       width: 80%;
       text-align: right;
       font-size: 1.5rem;
@@ -283,12 +286,14 @@ body {
         font-family: 'Poppins', sans-serif;
         font-size: 1.6rem;
         font-weight: 200;
-        line-height: 45px;
+        line-height: 2rem;
         text-align: center;
         text-transform: capitalize;
         text-decoration: none;
         transition: background-color 0.2s ease-in-out;
-        text-align: center; }
+        text-align: center;
+        height: auto;
+        padding: 20px; }
         @media screen and (min-width: 900px) {
           .container .popup--display .menu-buttons-container .menu-button {
             width: 25%; } }
