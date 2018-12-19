@@ -10,26 +10,29 @@ class MoodInterpreter {
         this.getDominantMood = this.getDominantMood.bind(this)
         this.getDominantMood()
     }
-    // get the main mood
 
     getDominantMood() {
-        if (this.moods[0].score) 
-        {
-            this.moods.forEach(mood => 
-                {
+        if (this.moods[0].score) {
+            console.log('case 1')
+            this.moods.forEach(mood => {
+                if (this.dominantMood === "confident") {
+                    return "joy"
+                }
+     
+                if (this.dominantMood === null) {
+                    return "neutral"
+                }
                 if (
                     mood.score > this.dominantScore && 
                     mood.tone_id !== 'analytical'
-                    ) 
-                    {
+                    ) {
                     this.dominantScore = mood.score
                     this.dominantMood = mood.tone_id
                 }
             });
             
             return this.dominantMood
-        } else 
-        {
+        } else {
             return this.moods[0].tone_id
         }
     }
