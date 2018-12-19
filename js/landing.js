@@ -95,7 +95,6 @@ const newColorBottom = '#132431'
 const oldColor = window.getComputedStyle($menuContainer).getPropertyValue('background-color')
 
 let darkModeStatus = false
-let localDarkMode = localStorage.getItem('localDarkMode')
 
 const landingDarkmodeParameters = () =>
 {
@@ -114,7 +113,6 @@ const landingDarkmodeParameters = () =>
         }
 
         darkModeStatus = true
-        localStorage.setItem('localDarkMode', false)
     }
     else if(darkModeStatus || !localDarkMode)
     {
@@ -131,10 +129,8 @@ const landingDarkmodeParameters = () =>
         }
 
         darkModeStatus = false
-        localStorage.setItem('localDarkMode', true)
     }
 }
-landingDarkmodeParameters()
 darkModeButton.addEventListener('click', () =>
 {
     landingDarkmodeParameters()
