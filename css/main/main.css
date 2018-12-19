@@ -144,6 +144,7 @@ body {
 }
 .container form .name {
   height: 35px;
+  color: var(--concept-text);
   border-bottom: 1px solid #000000 !important;
   transition: border-color 0.2s cubic-bezier(0.13, 0.34, 0.16, 0.93);
 }
