@@ -54,6 +54,7 @@ body {
 .return-pop {
   position: absolute;
   top: 0%;
+  visibility: hidden;
 }
 
 .round-return {
@@ -214,7 +215,7 @@ body {
 .container form .label-author {
   font-family: 'Dancing Script', cursive;
   position: relative;
-  bottom: 13%;
+  bottom: 10%;
   width: 80%;
   text-align: right;
   font-size: 1.5rem;
@@ -340,6 +341,7 @@ body {
   text-decoration: none;
   transition: background-color 0.2s ease-in-out;
   text-align: center;
+  height: auto;
 }
 @media screen and (min-width: 900px) {
   .container .popup--display .menu-buttons-container .menu-button {

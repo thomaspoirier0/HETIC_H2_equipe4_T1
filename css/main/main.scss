@@ -63,6 +63,7 @@ body
 {
     position: absolute;
     top: 0%;
+    visibility: hidden;
 }
 .round-return
 {
@@ -250,7 +251,7 @@ body
         {
             font-family: 'Dancing Script', cursive;
             position: relative;
-            bottom: 13%;
+            bottom: 10%;
             width: 80%;
             text-align: right;
             font-size: 1.5rem;
@@ -411,6 +412,7 @@ body
                 text-decoration: none;
                 transition: background-color 0.2s ease-in-out;
                 text-align: center;
+                height: auto;
                 
                 @media screen and (min-width: 900px) {
                     width: 25%;
